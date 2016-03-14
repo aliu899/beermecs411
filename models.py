@@ -16,8 +16,7 @@ def verify_user(email_address, password):
     result = db.engine.execute(execution_str)
     for item in result:
         print item
-        if item['password'] == password:
-            print "accept"
-            return true
+        print "accept"
+        return true
     print "reject"
     return false
