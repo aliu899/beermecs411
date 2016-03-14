@@ -18,6 +18,5 @@ def sign_up():
             print "hello"
             create_user(email, password)
             result = list_users()
-			print result
     return render_template('signup.html', users = result)
 
