@@ -6,11 +6,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 def create_user(email_address, password):
     print "start"
-    db.session.execute("INSERT INTO User (email, password) VALUES (?, ?)", (email_address, password))
+    db.session.execute("INSERT INTO User (email, password) VALUES (:email, :pass)", {"email": email_address, "pass":password})
     print "end"
 
 def list_users():
     print "start1"
     result = db.session.execute("SELECT * FROM User")
-    print len(result)
+    print result
     print "end1"
