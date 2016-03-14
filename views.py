@@ -10,10 +10,12 @@ def home_page():
 
 @app.route("/signup.html")
 def sign_up():
+    result = []
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         if '@' in email and password == request.form['password_confirm']:
             create_user(email, password)
-    return render_template('signup.html')
+            result = list_users()
+    return render_template('signup.html', users = result)
 

@@ -48,5 +48,9 @@
         </div>
     </fieldset>
 </form>
+
+{% for names in users %}
+    <p>{{ names.email }}</p>
+    <p>{{ names.password }}</p>
 </body>
 </html>
