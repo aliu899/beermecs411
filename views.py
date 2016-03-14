@@ -15,8 +15,7 @@ def sign_up():
         email = request.form['email']
         password = request.form['password']
         if '@' in email and password == request.form['password_confirm']:
-            print "hello"
             create_user(email, password)
-            result = list_users()
-    return render_template('signup.html', users = result)
+            list_users()
+    return render_template('signup.html')
 
