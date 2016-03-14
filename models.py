@@ -14,9 +14,7 @@ def list_users():
 def verify_user(email_address, password):
     execution_str = "SELECT * FROM \"User\" WHERE email=\'" + email_address +"\' AND password=\'" + password + "\';"
     result = db.engine.execute(execution_str)
-    for item in result:
-        print item
-        print "accept"
+    if len(result) != 0:
         return true
-    print "reject"
-    return false
+    else:
+        return false
