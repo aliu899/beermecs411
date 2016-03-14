@@ -1,8 +1,6 @@
 __author__ = 'Aaron'
 from app import db
 from sqlalchemy import text
-from sqlalchemy import create_engine
-from flask_sqlalchemy import SQLAlchemy
 
 
 def create_user(email_address, password):
