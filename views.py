@@ -4,9 +4,15 @@ from app import app
 from models import *
 from flask import render_template, request
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST  "])
 def home_page():
-    return render_template('index.html')
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        if (verify_user(email, password)):
+            return render_template('user_home.html')
+    else:
+        return render_template('index.html')
 
 @app.route("/signup.html", methods=["GET","POST"])
 def sign_up():
