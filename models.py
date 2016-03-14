@@ -1,9 +1,13 @@
 __author__ = 'Aaron'
 from app import db
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
 
 def create_user(email_address, password):
-    db.engine.execute("INSERT INTO User (email, password) VALUES (\'?\', \'?\')", email, password)
+	txt = "INSERT INTO User (email, password) VALUES (\'" + email + "\', \'"  + password + "\')"
+	sql = text(txt)
+
+    db.engine.execute(sql)
 
 def list_users():
     result = db.engine.execute("SELECT * FOM User")
