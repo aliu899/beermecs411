@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 def create_user(email_address, password):
     print "start"
-    db.session.execute("INSERT INTO User (email, password) VALUES (:email, :pass)", {"email": email_address, "pass":password})
+    db.session.execute("INSERT INTO User (email, password) VALUES (:email_address, :password)")
     print "end"
 
 def list_users():
