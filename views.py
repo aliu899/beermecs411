@@ -9,10 +9,10 @@ def home_page():
     if request.method == 'POST':
         email = request.form['loginEmail']
         password = request.form['loginPass']
-        print email
-        print password
         if (verify_user(email, password)):
             print "login accepted"
+        else:
+            print "login rejected"
     return render_template('index.html')
 
 @app.route("/signup.html", methods=["GET","POST"])
