@@ -9,7 +9,7 @@ def home_page():
     if request.method == 'POST':
         email = request.form['loginEmail']
         password = request.form['loginPass']
-        if (verify_user(email, password)):
+        if verify_user(email, password) == true:
             print "login accepted"
         else:
             print "login rejected"
