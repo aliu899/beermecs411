@@ -23,5 +23,3 @@ def sign_up():
 @app.route("/settings.html")
 def settings_page():
     return render_template('settings.html')
-
-
