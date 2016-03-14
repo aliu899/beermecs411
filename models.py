@@ -7,5 +7,5 @@ def create_user(email_address, password):
 	print "insert"
 
 def list_users():
-    result = db.engine.execute("SELECT * FROM User")
+    result = db.engine.execute("SELECT * FROM \"User\";")
     return result
