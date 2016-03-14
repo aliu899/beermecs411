@@ -10,8 +10,9 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
-}
+  margin: 3%;
+  padding: 2%;
+  height: 100%;}
 article,
 aside,
 details,
@@ -6757,4 +6758,6 @@ button.close {
     display: none !important;
   }
 }
+
+
 /*# sourceMappingURL=bootstrap.css.map */
