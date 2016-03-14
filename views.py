@@ -8,7 +8,7 @@ from flask import render_template, request
 def home_page():
     return render_template('index.html')
 
-@app.route("/signup.html")
+@app.route("/signup.html", methods=["GET","POST"])
 def sign_up():
     result = []
     if request.method == 'POST':
