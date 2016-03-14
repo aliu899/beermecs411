@@ -13,9 +13,10 @@ def list_users():
     return result
 
 def verify_user(email_address, password):
-	execution_str = "SELECT * FROM \"User\" WHERE email=\'" + email_address +"\';"
+    execution_str = "SELECT * FROM \"User\" WHERE email=\'" + email_address +"\';"
     result = db.engine.execute(execution_str)
     for item in result:
+        print item
         if item['password'] == password:
             return true
     return false
