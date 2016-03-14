@@ -9,6 +9,7 @@ def home_page():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
+        print email, password
         if (verify_user(email, password)):
             print "login accepted"
     return render_template('index.html')
