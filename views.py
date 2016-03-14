@@ -6,12 +6,9 @@ from flask import render_template, request
 
 @app.route("/", methods=["GET","POST"])
 def home_page():
-    print "load"
     if request.method == 'POST':
-        print "verifying"
         email = request.form['loginEmail']
         password = request.form['loginPass']
-        print email, password
         if (verify_user(email, password)):
             print "login accepted"
     return render_template('index.html')
