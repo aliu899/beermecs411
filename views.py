@@ -10,6 +10,7 @@ def home_page():
         email = request.form['email']
         password = request.form['password']
         if (verify_user(email, password)):
+            print "login accepted"
             return render_template('user_home.html')
     else:
         return render_template('index.html')
