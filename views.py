@@ -4,7 +4,7 @@ from app import app
 from models import *
 from flask import render_template, request
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET","POST"])
 def home_page():
     print "load"
     if request.method == 'POST':
@@ -23,7 +23,6 @@ def sign_up():
         password = request.form['password']
         if '@' in email and password == request.form['password_confirm']:
             create_user(email, password)
-            list_users()
     return render_template('signup.html')
 
 @app.route("/settings.html")
