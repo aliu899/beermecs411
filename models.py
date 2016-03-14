@@ -18,5 +18,4 @@ def verify_user(email_address, password):
     for item in result:
         if item['password'] == password:
             return true
-        else:
-            return false
+    return false
