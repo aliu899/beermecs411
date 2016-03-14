@@ -5,6 +5,7 @@ from sqlalchemy import *
 
 def create_user(email_address, password):
 	print "insert"
+	db.engine.execute("INSERT INTO \"User\" (email, password) VALUES (\'123@123.net\', \'password\');")
 
 def list_users():
     result = db.engine.execute("SELECT * FROM \"User\";")
