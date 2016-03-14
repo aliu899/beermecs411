@@ -8,8 +8,8 @@ from flask import render_template, request
 def home_page():
     if request.method == 'POST':
         print "verifying"
-        email = request.form['email']
-        password = request.form['password']
+        email = request.form['inputEmail']
+        password = request.form['inputPassword']
         print email, password
         if (verify_user(email, password)):
             print "login accepted"
@@ -17,7 +17,6 @@ def home_page():
 
 @app.route("/signup.html", methods=["GET","POST"])
 def sign_up():
-    result = []
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
