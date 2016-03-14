@@ -5,9 +5,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 def create_user(email_address, password):
-    eng = create_engine()
+    print "start"
     db.session.execute("INSERT INTO User (email, password) VALUES (?, ?)", (email_address, password))
+    print "end"
 
 def list_users():
-    result = db.engine.execute("SELECT * FROM User")
+    print "start1"
+    result = db.session.execute("SELECT * FROM User")
     print result
+    print "end1"
