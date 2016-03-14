@@ -12,5 +12,5 @@ def create_user(email_address, password):
 def list_users():
     print "start1"
     result = db.session.execute("SELECT * FROM User")
-    print result
+    print len(result)
     print "end1"
