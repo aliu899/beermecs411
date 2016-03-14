@@ -17,7 +17,7 @@ def verify_user(email_address, password):
     print email_address
     print password
     for item in result:
-        print item['password']
+        print item
         if item['password'] == password:
             print "accept"
             return true
