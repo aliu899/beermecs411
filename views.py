@@ -20,3 +20,6 @@ def sign_up():
             result = list_users()
     return render_template('signup.html', users = result)
 
+@app.route("/settings.html")
+def settings_page():
+    return render_template('settings.html')
