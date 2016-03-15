@@ -2,18 +2,21 @@ __author__ = 'Aaron'
 
 from app import app
 from models import *
-from flask import render_template, request
+from flask import render_template, request, session, redirect, url_for
 
 @app.route("/", methods=["GET","POST"])
 def home_page():
+    if 'email' in session:
+        return redirect(url_for('settings_page'))
     if request.method == 'POST':
         email = request.form['loginEmail']
         password = request.form['loginPass']
         if verify_user(email, password) == true:
-            return render_template('dashboard.html')
+            session['email'] = email
+            return redirect(url_for('settings_page'))
     return render_template('index.html')
 
-@app.route("/signup.html", methods=["GET","POST"])
+@app.route("/signup", methods=["GET","POST"])
 def sign_up():
     if request.method == 'POST':
         email = request.form['email']
@@ -22,6 +25,13 @@ def sign_up():
             create_user(email, password)
     return render_template('signup.html')
 
-@app.route("/settings.html")
+@app.route("/settings")
 def settings_page():
-    return render_template('settings.html')
+    if 'email' not in session:
+        return render_template('settings.html')
+
+@app.route("/logout")
+def logout():
+    session.pop('email', None)
+    return redirect(url_for('home_page'))
+
