@@ -25,7 +25,7 @@ def sign_up():
             create_user(email, password)
     return render_template('signup.html')
 
-@app.route("/settings")
+@app.route("/settings", methods=["GET","POST"])
 def settings_page():
     if 'email' not in session:
         return redirect(url_for('home_page'))
