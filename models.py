@@ -17,3 +17,8 @@ def verify_user(email_address, password):
     for item in result:
         return true
     return false
+
+def change_password(email_address, new_password):
+    execution_str = "UPDATE \"User\" SET password=\'" + new_password + "\' WHERE email=\'" + email_address + "\'"
+    result = db.engine.execute(execution_str)
+    return

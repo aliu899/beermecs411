@@ -29,6 +29,12 @@ def sign_up():
 def settings_page():
     if 'email' not in session:
         return redirect(url_for('home_page'))
+    if request.method == 'POST':
+        email = session['email']
+        password = request.form['old_password']
+        new_password = request.form['new_password']
+        if verify_user(email, password) == true and new_password == request.form['password_confirm']:
+            change_password(email, new_password)
     return render_template('settings.html')
 
 @app.route("/logout")
