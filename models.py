@@ -17,4 +17,5 @@ def verify_user(email_address, password):
     if len(result) != 0:
         return true
     else:
+        print "rejected"
         return false
