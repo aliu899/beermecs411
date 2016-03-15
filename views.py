@@ -10,9 +10,7 @@ def home_page():
         email = request.form['loginEmail']
         password = request.form['loginPass']
         if verify_user(email, password) == true:
-            print "login accepted"
-        else:
-            print "login rejected"
+            return render_template('dashboard.html')
     return render_template('index.html')
 
 @app.route("/signup.html", methods=["GET","POST"])
