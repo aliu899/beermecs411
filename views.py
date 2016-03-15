@@ -42,3 +42,9 @@ def logout():
     session.pop('email', None)
     return redirect(url_for('home_page'))
 
+@app.route("/delete_user")
+def delete_user():
+    delete_user_db(session['email'])
+    session.pop('email', None)
+    return redirect(url_for('home_page'))
+

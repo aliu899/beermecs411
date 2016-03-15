@@ -19,6 +19,9 @@ def verify_user(email_address, password):
     return false
 
 def change_password(email_address, new_password):
-    execution_str = "UPDATE \"User\" SET password=\'" + new_password + "\' WHERE email=\'" + email_address + "\'"
-    result = db.engine.execute(execution_str)
-    return
+    execution_str = "UPDATE \"User\" SET password=\'" + new_password + "\' WHERE email=\'" + email_address + "\';"
+    db.engine.execute(execution_str)
+
+def delete_user_db(email_address):
+    execution_str = "DELETE FROM \"User\" WHERE email=\'" + email_address + "\';"
+    db.engine.execute(execution_str)
