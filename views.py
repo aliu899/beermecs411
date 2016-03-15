@@ -25,10 +25,16 @@ def sign_up():
             create_user(email, password)
     return render_template('signup.html')
 
-@app.route("/settings")
+@app.route("/settings", methods=["GET","POST"])
 def settings_page():
     if 'email' not in session:
         return redirect(url_for('home_page'))
+    if request.method == 'POST':
+        email = session['email']
+        password = request.form['old_password']
+        new_password = request.form['new_password']
+        if verify_user(email, password) == true and new_password == request.form['password_confirm']:
+            change_password(email, new_password)
     return render_template('settings.html')
 
 @app.route("/logout")
