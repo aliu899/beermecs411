@@ -28,7 +28,8 @@ def sign_up():
 @app.route("/settings")
 def settings_page():
     if 'email' not in session:
-        return render_template('settings.html')
+        return redirect(url_for('home_page'))
+    return render_template('settings.html')
 
 @app.route("/logout")
 def logout():
