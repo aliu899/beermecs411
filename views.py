@@ -33,7 +33,6 @@ def user_dashboard():
         return redirect(url_for('home_page'))
     if request.method == 'POST':
         search_hits = search_results(request.form['search_param'])
-        print "searched"
         for item in search_hits:
             print item
     return render_template('query.html')
