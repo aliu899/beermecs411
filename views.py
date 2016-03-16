@@ -48,7 +48,7 @@ def detailed_page(beer_name):
         if i != 0:
             remaining.append(item)
         i += 1
-    return render_template('detailed-result.html',lowest = first, remaining= remaining)
+    return render_template('detailed-result.html')
 
 
 @app.route("/settings", methods=["GET","POST"])
