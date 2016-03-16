@@ -27,6 +27,7 @@ def delete_user_db(email_address):
     db.engine.execute(execution_str)
 
 def search_results(term):
+    print "searching"
     execution_str = "SELECT B.beername, rating, pictureurl, MIN(price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND (UPPER(B.beername) LIKE UPPER(\'%" + term + "%\') OR UPPER(B.stylename) LIKE UPPER(\'%" + term + "%\')) GROUP BY B.beername;"
     result = db.engine.execute(execution_str)
     return result
