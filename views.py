@@ -31,8 +31,8 @@ def sign_up():
 def user_dashboard():
     if 'email' not in session:
         return redirect(url_for('home_page'))
-    #if request.method == 'POST':
-        #search_hits = search_results(request.form['search_param'])
+    if request.method == 'POST':
+        search_hits = search_results(request.form['search_param'])
     return render_template('query.html')
 
 @app.route("/detail/<beer_name>", methods=["GET"])
