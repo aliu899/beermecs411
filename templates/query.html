@@ -81,10 +81,11 @@
         {% for result in results %}
         <div class="row">
             <div class="col-md-7">
-                <a href="#">
+                <div style="height:200px;">
                     <img class="img-responsive"
-                         src="{{ result.pictureurl }}" height="300" alt="">
-                </a>
+                         src="{{ result.pictureurl }}" width="700"
+                         height="300" alt="">
+                </div>
             </div>
             <div class="col-md-5">
                 <h3>{{ result.beername }}</h3>
