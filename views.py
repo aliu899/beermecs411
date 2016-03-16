@@ -7,7 +7,7 @@ from flask import render_template, request, session, redirect, url_for
 @app.route("/", methods=["GET","POST"])
 def home_page():
     if 'email' in session:
-        return redirect(url_for('settings_page'))
+        return redirect(url_for('user_dashboard'))
     if request.method == 'POST':
         email = request.form['loginEmail']
         password = request.form['loginPass']
