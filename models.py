@@ -25,3 +25,13 @@ def change_password(email_address, new_password):
 def delete_user_db(email_address):
     execution_str = "DELETE FROM \"User\" WHERE email=\'" + email_address + "\';"
     db.engine.execute(execution_str)
+
+def search_results(term):
+	execution_str = "SELECT B.beername, rating, pictureurl, MIN(price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND (UPPER(B.beername) LIKE UPPER(\'%" + term + "%\') OR UPPER(B.stylename) LIKE UPPER(\'%" + term +"%\')) GROUP BY B.beername;
+    result = db.engine.execute(execution_str)
+	return result
+
+def get_details(beer):
+    execution_str = "SELECT B.beername, size, number, stylename, rating, pictureurl FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\' + beer + "\';
+    result = db.engine.execute(execution_str)
+	return result"
