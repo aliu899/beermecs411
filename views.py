@@ -43,6 +43,7 @@ def detailed_page(beer_name):
     beer_result = get_details(beer_name)
     lowest = beer_result[0]
     remaining = beer_result[1:]
+    print remaining
     return render_template('detailed-result.html',lowest = lowest, remaining= remaining)
 
 
