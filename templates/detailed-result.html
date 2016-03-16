@@ -59,10 +59,10 @@
         </div>
         <!-- /.col-md-8 -->
         <div class="col-md-4">
-            <h1>{{beer_name}}</h1>
-            <h3>{{store_name}}</h3>
-            <h3>{{beer_price}}</h3>
-            <p>{{beer_description}}</p>
+            <h1>{{lowest.beername}}</h1>
+            <h3>{{lowest.store}}</h3>
+            <h3>{{lowest.price}}</h3>
+            <p>{{lowest.rating}}</p>
             <br>
             <a class="btn btn-default" href="#">Go to Website</a>
         </div>
@@ -85,25 +85,13 @@
 
     <!-- Content Row -->
     <div class="row">
+        {% for listing in remaining %}
         <div class="col-md-4">
-            <h3>{{store_name}}</h3>
-            <h4>{{beer_price}}</h4>
+            <h3>{{ listing.store }}</h3>
+            <h4>{{ listing.price }}</h4>
             <a class="btn btn-default" href="#">Go to Website</a>
         </div>
-        <!-- /.col-md-4 -->
-        <div class="row">
-        <div class="col-md-4">
-            <h3>{{store_name}}</h3>
-            <h4>{{beer_price}}</h4>
-            <a class="btn btn-default" href="#">Go to Website</a>
-        </div>
-        <!-- /.col-md-4 -->
-         <div class="row">
-        <div class="col-md-4">
-            <h3>{{store_name}}</h3>
-            <h4>{{beer_price}}</h4>
-            <a class="btn btn-default" href="#">Go to Website</a>
-        </div>
+        {% endfor %}
         <!-- /.col-md-4 -->
     </div>
     <!-- /.row -->
