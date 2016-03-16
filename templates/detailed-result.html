@@ -66,7 +66,6 @@
             <p>Style: {{ lowest.stylename }}</p>
             <p>Rating: {{ lowest.rating }}</p>
             <br>
-            <a class="btn btn-default" href="#">Go to Website</a>
         </div>
         <!-- /.col-md-4 -->
     <div class="col-md-4">
@@ -91,8 +90,7 @@
         <div class="col-md-4">
             <h3>{{ listing.store }}</h3>
             <h4>${{ listing.price }}</h4>
-            <h4>{{ listing.number }}, {{ listing.size }}</h4>
-            <a class="btn btn-default" href="#">Go to Website</a>
+            <h5>{{ listing.number }}, {{ listing.size }}</h5>
         </div>
         {% endfor %}
         <!-- /.col-md-4 -->
