@@ -32,7 +32,7 @@ def user_dashboard():
     if 'email' not in session:
         return redirect(url_for('home_page'))
     if request.method == 'POST':
-        search_hits = search_results(request.form['search_param'])
+        search_hits = search_results(request.form['x'])
         for item in search_hits:
             print item
     return render_template('query.html')
