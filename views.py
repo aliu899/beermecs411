@@ -7,13 +7,13 @@ from flask import render_template, request, session, redirect, url_for
 @app.route("/", methods=["GET","POST"])
 def home_page():
     if 'email' in session:
-        return redirect(url_for('settings_page'))
+        return redirect(url_for('user_dashboard'))
     if request.method == 'POST':
         email = request.form['loginEmail']
         password = request.form['loginPass']
         if verify_user(email, password) == true:
             session['email'] = email
-            return redirect(url_for('query'))
+            return redirect(url_for('user_dashboard'))
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
@@ -24,16 +24,23 @@ def sign_up():
         if '@' in email and password == request.form['password_confirm']:
             create_user(email, password)
             session['email'] = email
-            return redirect(url_for('settings_page'))
+            return redirect(url_for('user_dashboard'))
     return render_template('signup.html')
 
 @app.route("/dashboard", methods=["GET", "POST"])
 def user_dashboard():
     if 'email' not in session:
         return redirect(url_for('home_page'))
-    return render_template('query.html')
+    if request.method == 'POST':
+        search_hits = search_results(request.form['search_param'])
+    return render_template('query.html', results = search_hits)
 
-@app.route("/detail/", methods=["GET", "POST"])
+@app.route("/detail/<beer_name>", methods=["GET"])
+def detailed_page(beer_name):
+    if 'email' not in session:
+        return redirect(url_for('home_page'))
+    beer_result = get_details(beer_name)
+    return render_template('detailed-result.html', beer = beer_result[0])
 
 
 @app.route("/settings", methods=["GET","POST"])
