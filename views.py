@@ -33,7 +33,11 @@ def user_dashboard():
         return redirect(url_for('home_page'))
     return render_template('query.html')
 
-@app.route("/detail/", methods=["GET", "POST"])
+@app.route("/detail/<beer_name>", methods=["GET", "POST"])
+def detailed_page():
+    if 'email' not in session:
+        return redirect(url_for('home_page'))
+    return render_template('detailed-result.html')
 
 
 @app.route("/settings", methods=["GET","POST"])
