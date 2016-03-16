@@ -52,7 +52,7 @@ def detailed_page(beer_name):
     print first
     print remaining
 
-    return render_template('detailed-result.html')
+    return render_template('detailed-result.html', lowest = first, remaining = remaining)
 
 
 @app.route("/settings", methods=["GET","POST"])
