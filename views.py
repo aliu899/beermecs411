@@ -40,6 +40,7 @@ def user_dashboard():
 def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
+    print beer_name
     #beer_result = get_details(beer_name)
     return render_template('detailed-result.html')
 
