@@ -24,7 +24,7 @@ def sign_up():
         if '@' in email and password == request.form['password_confirm']:
             create_user(email, password)
             session['email'] = email
-            return redirect(url_for('settings_page'))
+            return redirect(url_for('user_dashboard'))
     return render_template('signup.html')
 
 @app.route("/dashboard", methods=["GET", "POST"])
