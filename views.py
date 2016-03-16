@@ -33,9 +33,7 @@ def user_dashboard():
         return redirect(url_for('home_page'))
     if request.method == 'POST':
         search_hits = search_results(request.form['x'])
-        for item in search_hits:
-            print item
-    return render_template('query.html')
+    return render_template('query.html', results = search_hits)
 
 @app.route("/detail/<beer_name>", methods=["GET"])
 def detailed_page(beer_name):

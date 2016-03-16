@@ -83,14 +83,14 @@
             <div class="col-md-7">
                 <a href="#">
                     <img class="img-responsive"
-                         src="http://blackhills-speedway.org/wp-content/uploads/2013/02/budlight.png" width="700"
+                         src="{{ result.pictureurl }}" width="700"
                          height="300" alt="">
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>{{ result['beer_name'] }}</h3>
-                <h4>{{ result['beer_cheapest_price'] }}</h4>
-                <p>{{ result['description'] }}</p>
+                <h3>{{ result.beername }}</h3>
+                <h4>{{ result.min }}</h4>
+                <p>{{ result.rating }}</p>
                 <a class="btn btn-primary" href="#">View Beer <span
                         class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
@@ -119,14 +119,6 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="../static/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script>
-    $("#search-results").hide();
-    $(document).ready(function () {
-        $("#search-button").click(function () {
-            $("#search-results").show();
-        });
-    });
-</script>
 
 </body>
 </html>
