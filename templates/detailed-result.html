@@ -62,7 +62,7 @@
             <h1>{{ lowest.beername }}</h1>
             <h3>{{ lowest.store }}</h3>
             <h3>${{ lowest.price }}</h3>
-            <h3>${{ lowest.number }}, ${{ lowest.size }}</h3>
+            <h4>{{ lowest.number }}, {{ lowest.size }}</h4>
             <p>Style: {{ lowest.stylename }}</p>
             <p>Rating: {{ lowest.rating }}</p>
             <br>
@@ -91,7 +91,7 @@
         <div class="col-md-4">
             <h3>{{ listing.store }}</h3>
             <h4>${{ listing.price }}</h4>
-            <h4>${{ listing.number }}, ${{ listing.size }}</h4>
+            <h4>{{ listing.number }}, {{ listing.size }}</h4>
             <a class="btn btn-default" href="#">Go to Website</a>
         </div>
         {% endfor %}
