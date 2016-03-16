@@ -31,6 +31,7 @@ def sign_up():
 def user_dashboard():
     if 'email' not in session:
         return redirect(url_for('home_page'))
+    search_hits = []
     if request.method == 'POST':
         search_hits = search_results(request.form['x'])
     return render_template('query.html', results = search_hits)
