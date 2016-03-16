@@ -40,7 +40,7 @@ def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
     beer_result = get_details(beer_name)
-    return render_template('detailed-result.html', beer = beer_result[0])
+    return render_template('detailed-result.html')
 
 
 @app.route("/settings", methods=["GET","POST"])
