@@ -27,11 +27,11 @@ def delete_user_db(email_address):
     db.engine.execute(execution_str)
 
 def search_results(term):
-	execution_str = "SELECT B.beername, rating, pictureurl, MIN(price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND (UPPER(B.beername) LIKE UPPER(\'%" + term + "%\') OR UPPER(B.stylename) LIKE UPPER(\'%" + term +"%\')) GROUP BY B.beername;
+    execution_str = "SELECT B.beername, rating, pictureurl, MIN(price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND (UPPER(B.beername) LIKE UPPER(\'%" + term + "%\') OR UPPER(B.stylename) LIKE UPPER(\'%" + term +"%\')) GROUP BY B.beername;
     result = db.engine.execute(execution_str)
-	return result
+    return result
 
 def get_details(beer):
     execution_str = "SELECT B.beername, size, number, stylename, rating, pictureurl FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\' + beer + "\';
     result = db.engine.execute(execution_str)
-	return result"
+    return result"
