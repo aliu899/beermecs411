@@ -41,9 +41,13 @@ def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
     beer_result = get_details(beer_name)
-    print "here"
-    lowest = beer_result[0]
-    remaining = beer_result[1:]
+    i = 0
+    remaining = []
+    for item in beer_result:
+        if i == 0:
+            lowest = beer_result[i]
+        else:
+            remaining.append(beer_result[i])
 
     return render_template('detailed-result.html',lowest = lowest, remaining= remaining)
 
