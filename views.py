@@ -31,13 +31,16 @@ def sign_up():
 def user_dashboard():
     if 'email' not in session:
         return redirect(url_for('home_page'))
-    return render_template('query.html')
+    if request.method == 'POST':
+        search_hits = search_results(request.form['search_param'])
+    return render_template('query.html', results = search_hits)
 
-@app.route("/detail/<beer_name>", methods=["GET", "POST"])
-def detailed_page():
+@app.route("/detail/<beer_name>", methods=["GET"])
+def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
-    return render_template('detailed-result.html')
+    beer_result = get_details(beer_name)
+    return render_template('detailed-result.html', beer = beer_result[0])
 
 
 @app.route("/settings", methods=["GET","POST"])
