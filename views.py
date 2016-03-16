@@ -48,6 +48,8 @@ def detailed_page(beer_name):
         if i != 0:
             remaining.append(item)
         i += 1
+    print first
+    print remaining
     return render_template('detailed-result.html')
 
 
