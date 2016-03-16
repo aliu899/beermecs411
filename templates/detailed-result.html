@@ -55,7 +55,7 @@
     <!-- Heading Row -->
     <div class="row">
         <div class="col-md-8">
-            <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+            <img class="img-responsive img-rounded" src="{{ lowest.pictureurl }}" alt="">
         </div>
         <!-- /.col-md-8 -->
         <div class="col-md-4">
@@ -87,7 +87,8 @@
     <div class="row">
         {% for listing in remaining %}
         <div class="col-md-4">
-
+            <h3>{{ listing.store }}</h3>
+            <h4>{{ listing.price }}</h4>
             <a class="btn btn-default" href="#">Go to Website</a>
         </div>
         {% endfor %}
