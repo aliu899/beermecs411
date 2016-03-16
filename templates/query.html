@@ -78,7 +78,24 @@
         </div>
         <!-- /.row -->
         <!-- Query Results -->
-        
+        {% for result in results %}
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <img class="img-responsive"
+                         src="{{ result.pictureurl }}" width="700"
+                         height="300" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>{{ result.beername }}</h3>
+                <h4>{{ result.min }}</h4>
+                <p>{{ result.rating }}</p>
+                <a class="btn btn-primary" href="#">View Beer <span
+                        class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        {% endfor %}
         <!-- /.row -->
     </div>
 
