@@ -4,7 +4,7 @@ from app import app
 from models import *
 from flask import render_template, request
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET","POST"])
 def home_page():
     print "ya"
     if request.method == 'POST':
