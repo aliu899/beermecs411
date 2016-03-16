@@ -13,7 +13,7 @@ def home_page():
         password = request.form['loginPass']
         if verify_user(email, password) == true:
             session['email'] = email
-            return redirect(url_for('settings_page'))
+            return redirect(url_for('query'))
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
@@ -26,6 +26,14 @@ def sign_up():
             session['email'] = email
             return redirect(url_for('settings_page'))
     return render_template('signup.html')
+
+@app.route("/dashboard", methods=["GET", "POST"])
+def user_dashboard():
+    if 'email' not in session:
+        return redirect(url_for('home_page'))
+    return render_template('query.html')
+
+@app.route("/detail/")
 
 @app.route("/settings", methods=["GET","POST"])
 def settings_page():
