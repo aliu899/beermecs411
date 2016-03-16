@@ -33,7 +33,8 @@ def user_dashboard():
         return redirect(url_for('home_page'))
     return render_template('query.html')
 
-@app.route("/detail/")
+@app.route("/detail/", methods=["GET", "POST"])
+
 
 @app.route("/settings", methods=["GET","POST"])
 def settings_page():
