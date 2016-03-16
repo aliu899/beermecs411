@@ -13,7 +13,7 @@ def home_page():
         password = request.form['loginPass']
         if verify_user(email, password) == true:
             session['email'] = email
-            return redirect(url_for('query'))
+            return redirect(url_for('user_dashboard'))
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
