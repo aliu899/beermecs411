@@ -41,9 +41,18 @@ def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
     beer_result = get_details(beer_name)
+    remaining = []
+    i = 0
     for item in beer_result:
-        print item
-    return render_template('detailed-result.html')
+        if i == 0:
+            first = item
+        else:
+            remaining.append(item)
+        i += 1
+    print first
+    print remaining
+
+    return render_template('detailed-result.html', lowest = first, remaining = remaining)
 
 
 @app.route("/settings", methods=["GET","POST"])

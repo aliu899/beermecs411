@@ -6435,6 +6435,11 @@ button.close {
 .carousel-caption .btn {
   text-shadow: none;
 }
+
+.beer-logo.resize {
+  height: 200px;
+}
+
 @media screen and (min-width: 768px) {
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .glyphicon-chevron-right,

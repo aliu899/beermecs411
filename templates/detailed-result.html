@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
     <link rel="shortcut icon" href="http://s12.postimg.org/k0y5zevlp/orange_beer_256.png">
-    <title>{{ beer-name}}</title>
+    <title>{{ lowest.beername }}</title>
 </head>
 <body>
 <!-- Bootstrap Core CSS -->
@@ -49,7 +49,7 @@
     <!-- /.container -->
 </nav>
 <div class="container">
-    <a href="query"><span class="glyphicon glyphicon-chevron-left"></span> Back to results</a>
+    <a href="/dashboard"><span class="glyphicon glyphicon-chevron-left"></span>Back to Search</a>
 </div>
 <br>
 <!-- Page Content -->
@@ -57,16 +57,17 @@
     <!-- Heading Row -->
     <div class="row">
         <div class="col-md-8">
-            <img class="img-responsive img-rounded" src="http://placehold.it/900x350" alt="">
+            <img class="img-responsive img-rounded" src="{{ lowest.pictureurl }}" alt="">
         </div>
         <!-- /.col-md-8 -->
         <div class="col-md-4">
-            <h1>{{beer_name}}</h1>
-            <h3>{{store_name}}</h3>
-            <h3>{{beer_price}}</h3>
-            <p>{{beer_description}}</p>
+            <h1>{{ lowest.beername }}</h1>
+            <h3>{{ lowest.store }}</h3>
+            <h3>${{ lowest.price }}</h3>
+            <h4>{{ lowest.number }}, {{ lowest.size }}</h4>
+            <p>Style: {{ lowest.stylename }}</p>
+            <p>Rating: {{ lowest.rating }}</p>
             <br>
-            <a class="btn btn-default" href="#">Go to Website</a>
         </div>
         <!-- /.col-md-4 -->
     <div class="col-md-4">
@@ -88,25 +89,13 @@
 
     <!-- Content Row -->
     <div class="row">
+        {% for listing in remaining %}
         <div class="col-md-4">
-            <h3>{{store_name}}</h3>
-            <h4>{{beer_price}}</h4>
-            <a class="btn btn-default" href="#">Go to Website</a>
+            <h3>{{ listing.store }}</h3>
+            <h4>${{ listing.price }}</h4>
+            <h5>{{ listing.number }}, {{ listing.size }}</h5>
         </div>
-        <!-- /.col-md-4 -->
-        <div class="row">
-        <div class="col-md-4">
-            <h3>{{store_name}}</h3>
-            <h4>{{beer_price}}</h4>
-            <a class="btn btn-default" href="#">Go to Website</a>
-        </div>
-        <!-- /.col-md-4 -->
-         <div class="row">
-        <div class="col-md-4">
-            <h3>{{store_name}}</h3>
-            <h4>{{beer_price}}</h4>
-            <a class="btn btn-default" href="#">Go to Website</a>
-        </div>
+        {% endfor %}
         <!-- /.col-md-4 -->
     </div>
     <!-- /.row -->
