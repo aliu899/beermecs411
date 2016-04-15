@@ -1,5 +1,4 @@
 import scrapy
-from walmart_test.items import WalmartItem
 
 class MeijerSpider(scrapy.Spider):
 	name = "meijer"

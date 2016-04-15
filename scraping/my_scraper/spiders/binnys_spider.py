@@ -1,5 +1,4 @@
 import scrapy
-from walmart_test.items import WalmartItem
 from scrapy.http import Request
 
 class BinnysSpider(scrapy.Spider):
