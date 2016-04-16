@@ -22,11 +22,10 @@ class BinnysSpider(scrapy.Spider):
 					num = amountInfo[:packIndex].strip()
 					amountInfo = amountInfo[packIndex:]
 					ozIndex = amountInfo.find("oz")
-					amt = amountInfo[:ozIndex]
+					amt = amountInfo[:ozIndex + 2]
 				else:
 					num = 1
 					ozIndex = amountInfo.find("oz")
-					amt = amountInfo[:ozIndex]
-					print amountInfo
-
+					amt = amountInfo[:ozIndex + 2]
+				print beer, num, amt, price
 
