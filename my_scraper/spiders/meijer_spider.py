@@ -20,7 +20,7 @@ class MeijerSpider(scrapy.Spider):
 				
 				price = price[3:-2].strip().split(",")
 				if len(price) == 1:
-					price = price[0][26:]
+					price = price[0][27:]
 				else: 
 					price = price[1][6:-1].strip()
 				
