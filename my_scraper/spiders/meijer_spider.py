@@ -1,6 +1,7 @@
 import scrapy
-from app import app
-from models import *
+import sys
+sys.path.append('/app')
+from models import add_beer
 
 class MeijerSpider(scrapy.Spider):
 	name = "meijer"

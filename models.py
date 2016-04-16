@@ -36,3 +36,6 @@ def get_details(beer):
     print execution_str
     result = db.engine.execute(execution_str)
     return result
+
+def add_beer(beer):
+	print "adding beer to database"	
