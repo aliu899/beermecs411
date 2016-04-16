@@ -40,5 +40,5 @@ def get_details(beer):
 def add_beer(beer, amt, num, price, store):
 	execution_str_beer = "INSERT INTO \"Beer\" (beername) VALUES (\'" + beer + "\');"
 	print execution_str_beer
-	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price)) VALUES (\'" + str(bee)r + "\', \'" + str(num) + "\', \'" + str(amt) + "\', \'" + str(price) + "\', \'" + str(store) + "\');"
+	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price)) VALUES (\'" + str(beer) + "\', \'" + str(num) + "\', \'" + str(amt) + "\', \'" + str(price) + "\', \'" + str(store) + "\');"
 	print execution_str_item
