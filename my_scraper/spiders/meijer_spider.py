@@ -14,17 +14,17 @@ class MeijerSpider(scrapy.Spider):
 		for sel in response.xpath('//body/div/div/div/div/div/div/div/div/ul/li'):
 			beer = str(sel.xpath('div/div/div/div[contains(@class, \'prod-title\')]/a/text()').extract())
 			price = str(sel.xpath('div/div/div/div[contains(@class, \'prod-price-sale\')]/div/text()[1]').extract())
+			photo = str(sel.xpath('*[contains(@class, \'prod-img\']')
+			print(photo
 			
 			if len(beer) > 5:
 				beer = beer[3:-2].split(",")
 				
 				price = price[3:-2].strip().split(",")
-				print price
 				if len(price) == 1:
 					price = price[0][27:]
 				else: 
 					price = price[1][5:-1].strip()[1:]
-				print price
 
 				beerName = beer[0]
 				beerAmt = beer[1].split()[0] + "oz"
@@ -39,6 +39,6 @@ class MeijerSpider(scrapy.Spider):
 					beerName = beerName[:-7]
 				if beerName.endswith(" Beer"):
 					beerName = beerName[:-5]
-				beerName = beerName.replace("'", "''")
+				beerName = beerName.replace("'", "")
 
-				add_beer(beerName, beerAmt, beerNum, price, "Meijer")
+#				add_beer(beerName, beerAmt, beerNum, price, "Meijer")
