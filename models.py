@@ -5,8 +5,7 @@ from sqlalchemy import *
 
 def create_user(email_address, password):
     execution_str = "INSERT INTO \"User\" (email, password) VALUES (\'" + email_address + "\', \'" + password + "\');"
-	try:
-		db.engine.execute(execution_str)
+	db.engine.execute(execution_str)
 
 def list_users():
     result = db.engine.execute("SELECT * FROM \"User\";")
@@ -24,13 +23,11 @@ def verify_user(email_address, password):
 
 def change_password(email_address, new_password):
     execution_str = "UPDATE \"User\" SET password=\'" + new_password + "\' WHERE email=\'" + email_address + "\';"
-    try:
-		db.engine.execute(execution_str)
+	db.engine.execute(execution_str)
 
 def delete_user_db(email_address):
     execution_str = "DELETE FROM \"User\" WHERE email=\'" + email_address + "\';"
-    try:
-		db.engine.execute(execution_str)
+	db.engine.execute(execution_str)
 
 def search_results(term):
     execution_str = "SELECT B.beername, rating, pictureurl, MIN(price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND (UPPER(B.beername) LIKE UPPER(\'%%" + term + "%%\') OR UPPER(B.stylename) LIKE UPPER(\'%%" + term + "%%\')) GROUP BY B.beername;"
