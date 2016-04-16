@@ -25,7 +25,7 @@ class MeijerSpider(scrapy.Spider):
 					price = price[1][5:-1].strip()
 				
 				beerName = beer[0]
-				beerAmt = beer[1].split()[0]
+				beerAmt = beer[1].split()[0] + "oz"
 				if len(beer) > 2:
 					beerNum = beer[2].split()[0]
 				else:
@@ -38,5 +38,4 @@ class MeijerSpider(scrapy.Spider):
 				if beerName.endswith(" Beer"):
 					beerName = beerName[:-5]
 					
-				print beerName, beerAmt, beerNum, price
-				add_beer(beerName)
+				add_beer(beerName, beerAmt, beerNum, price, "meijer")

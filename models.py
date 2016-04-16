@@ -37,5 +37,7 @@ def get_details(beer):
     result = db.engine.execute(execution_str)
     return result
 
-def add_beer(beer):
-	print "adding beer to database"	
+def add_beer(beer, amt, num, price, store):
+	execution_str_beer = "INSERT INTO \"Beer\" (beername) VALUES (\'" + beer + "\');"
+	print execution_str_beer
+	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, price, store)) VALUES (\'" + email_addre    ss + "\', \'" + password + "\');"
