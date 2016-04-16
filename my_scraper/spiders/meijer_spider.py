@@ -37,5 +37,6 @@ class MeijerSpider(scrapy.Spider):
 					beerName = beerName[:-7]
 				if beerName.endswith(" Beer"):
 					beerName = beerName[:-5]
-					
+				beerName = beerName.replace("'", "\\'")
+
 				add_beer(beerName, beerAmt, beerNum, price, "Meijer")
