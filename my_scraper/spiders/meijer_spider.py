@@ -18,7 +18,7 @@ class MeijerSpider(scrapy.Spider):
 			
 			if len(beer) > 5:
 				beer = beer[3:-2].split(",")
-				photo = photo[5:-2]
+				photo = "http://" + photo[5:-2]
 				
 				price = price[3:-2].strip().split(",")
 				if len(price) == 1:
