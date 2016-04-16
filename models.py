@@ -40,8 +40,8 @@ def get_details(beer):
     result = db.engine.execute(execution_str)
     return result
 
-def add_beer(beer, amt, num, price, store):
-	execution_str_beer = "INSERT INTO \"Beer\" (beername) VALUES (\'" + beer + "\');"
+def add_beer(beer, pic, amt, num, price, store):
+	execution_str_beer = "INSERT INTO \"Beer\" (beername, pictureurl) VALUES (\'" + beer + "\', \'" + pic + "\');"
 	try:
 		db.engine.execute(execution_str_beer)
 	except Exception as ex:

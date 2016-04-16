@@ -17,8 +17,8 @@ class MeijerSpider(scrapy.Spider):
 			photo = str(sel.xpath('div/div/div/a/img/@src').extract())
 			
 			if len(beer) > 5:
-				print photo
 				beer = beer[3:-2].split(",")
+				photo = photo[5:-2]
 				
 				price = price[3:-2].strip().split(",")
 				if len(price) == 1:
@@ -41,4 +41,4 @@ class MeijerSpider(scrapy.Spider):
 					beerName = beerName[:-5]
 				beerName = beerName.replace("'", "")
 
-#				add_beer(beerName, beerAmt, beerNum, price, "Meijer")
+				add_beer(beerName, photo, beerAmt, beerNum, price, "Meijer")
