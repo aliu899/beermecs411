@@ -14,7 +14,7 @@ class MeijerSpider(scrapy.Spider):
 		for sel in response.xpath('//body/div/div/div/div/div/div/div/div/ul/li'):
 			beer = str(sel.xpath('div/div/div/div[contains(@class, \'prod-title\')]/a/text()').extract())
 			price = str(sel.xpath('div/div/div/div[contains(@class, \'prod-price-sale\')]/div/text()[1]').extract())
-			photo = str(sel.xpath('*[contains(@class, \'prod-img\')]))
+			photo = str(sel.xpath('*[contains(@class, \'prod-img\')]'))
 			print photo
 			
 			if len(beer) > 5:
