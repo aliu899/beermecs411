@@ -1,4 +1,7 @@
 import scrapy
+import sys
+sys.path.append('/app')
+from models import add_beer
 from scrapy.http import Request
 
 class BinnysSpider(scrapy.Spider):
@@ -28,5 +31,5 @@ class BinnysSpider(scrapy.Spider):
 					num = 1
 					ozIndex = amountInfo.find("oz")
 					amt = amountInfo[:ozIndex + 2]
-				print photo
+				add_beer(beer, photo, amt, num, price, "Binnys")
 
