@@ -41,12 +41,12 @@ def add_beer(beer, amt, num, price, store):
 	execution_str_beer = "INSERT INTO \"Beer\" (beername) VALUES (\'" + beer + "\');"
 	try:
 		print execution_str_beer
-		db.engine.execute(execution_str)
+		db.engine.execute(execution_str_beer)
 	except Exception as ex:
 		print ex
 #	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price) VALUES (\'" + str(beer) + "\', \'" + str(num) + "\', \'" + str(amt) + "\', \'" + str(price) + "\', \'" + str(store) + "\');"
 #	try:
-#		db.engine.execute(execution_str)
+#		db.engine.execute(execution_str_item)
 #		print execution_str_item
 #	except DatabaseError, e:
 #		print str(e)
