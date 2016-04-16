@@ -39,6 +39,14 @@ def get_details(beer):
 
 def add_beer(beer, amt, num, price, store):
 	execution_str_beer = "INSERT INTO \"Beer\" (beername) VALUES (\'" + beer + "\');"
-	print execution_str_beer
+	try:
+		db.engine.execute(execution_str)
+		print execution_str_beer
+	except DatabaseError, e:
+		print str(e)
 	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price)) VALUES (\'" + str(beer) + "\', \'" + str(num) + "\', \'" + str(amt) + "\', \'" + str(price) + "\', \'" + str(store) + "\');"
-	print execution_str_item
+#	try:
+#		db.engine.execute(execution_str)
+#		print execution_str_item
+#	except DatabaseError, e:
+#		print str(e)
