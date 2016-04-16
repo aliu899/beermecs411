@@ -38,4 +38,4 @@ class MeijerSpider(scrapy.Spider):
 				if beerName.endswith(" Beer"):
 					beerName = beerName[:-5]
 					
-				add_beer(beerName, beerAmt, beerNum, price, "meijer")
+				add_beer(beerName, beerAmt, beerNum, price, "Meijer")
