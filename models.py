@@ -42,8 +42,8 @@ def add_beer(beer, amt, num, price, store):
 	try:
 		print execution_str_beer
 		db.engine.execute(execution_str)
-	except:
-		print "an error occured"
+	except Exception as ex:
+		print ex
 #	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price) VALUES (\'" + str(beer) + "\', \'" + str(num) + "\', \'" + str(amt) + "\', \'" + str(price) + "\', \'" + str(store) + "\');"
 #	try:
 #		db.engine.execute(execution_str)
