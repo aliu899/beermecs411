@@ -41,3 +41,4 @@ def add_beer(beer, amt, num, price, store):
 	execution_str_beer = "INSERT INTO \"Beer\" (beername) VALUES (\'" + beer + "\');"
 	print execution_str_beer
 	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, price, store)) VALUES (\'" + email_addre    ss + "\', \'" + password + "\');"
+	print execution_str_item
