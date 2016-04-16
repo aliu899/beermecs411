@@ -15,7 +15,7 @@ class BinnysSpider(scrapy.Spider):
 		for sel in response.xpath('//body/div/div/div/div/div/div[contains(@class, \'row result\')]'):
 			beer = str(sel.xpath('div/h3/a/text()').extract())[3:-2]
 			price  = str(sel.xpath('div/div/div/div/div[contains(@class, \'prodPrice\')]/text()').extract())[4:-2]
-			photo = str(sel.xpath('div/div[contains(@class, \'image\')]/a/@href').extract())
+			photo = "http://www.binnys.com" + str(sel.xpath('div/div[contains(@class, \'image\')]/a/@href').extract())[3:-2]
 			amountInfo = str(sel.xpath('div/div/div/div/div/text()').extract()[1])
 			if len(price) > 1 and "oz" in amountInfo:
 				packIndex = amountInfo.find(" Pack")
