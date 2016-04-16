@@ -16,7 +16,7 @@ def verify_user(email_address, password):
     try:
         result = db.engine.execute(execution_str)
         for item in result:
-            return true:
+            return true
         return false
     except:
         return false
