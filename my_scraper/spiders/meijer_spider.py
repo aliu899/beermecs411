@@ -23,7 +23,7 @@ class MeijerSpider(scrapy.Spider):
 				if len(price) == 1:
 					price = price[0][27:]
 				else: 
-					price = price[1][6:-1].strip()
+					price = price[1][5:-1].strip()[1:]
 				print price
 
 				beerName = beer[0]
