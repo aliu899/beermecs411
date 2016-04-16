@@ -20,9 +20,9 @@ class BinnysSpider(scrapy.Spider):
 				packIndex = amountInfo.find(" Pack")
 				if packIndex > 0:
 					num = amountInfo[:packIndex].strip()
-					amountInfo = amountInfo[packIndex:]
+					amountInfo = amountInfo[packIndex + 9:]
 					ozIndex = amountInfo.find("oz")
-					amt = amountInfo[:ozIndex + 2]
+					amt = amountInfo[:ozIndex + 2].strip()
 				else:
 					num = 1
 					ozIndex = amountInfo.find("oz")
