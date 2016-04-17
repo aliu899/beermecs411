@@ -17,6 +17,7 @@ class BinnysSpider(scrapy.Spider):
 	def parse(self, response):
 		for sel in response.xpath('//body/div/div/div/div/div/div[contains(@class, \'row result\')]'):
 			beer = str(sel.xpath('div/h3/a/text()').extract())[3:-2]
+			beer = beer.replace("'", "")
 			price  = str(sel.xpath('div/div/div/div/div[contains(@class, \'prodPrice\')]/text()').extract())[4:-2]
 			photo = str(sel.xpath('div/div[contains(@class, \'image\')]/a/div/div/img/@src').extract())[3:-2]
 			amountInfo = str(sel.xpath('div/div/div/div/div/text()').extract()[1])
