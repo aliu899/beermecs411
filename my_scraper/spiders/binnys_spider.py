@@ -31,6 +31,6 @@ class BinnysSpider(scrapy.Spider):
 				else:
 					num = 1
 					ozIndex = amountInfo.find("oz")
-					amt = amountInfo[:ozIndex + 2]
+					amt = amountInfo[:ozIndex]
 				add_beer(beer, photo, amt, num, price, "Binnys")
 
