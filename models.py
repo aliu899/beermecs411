@@ -35,7 +35,7 @@ def search_results(term):
     return result
 
 def get_details(beer):
-    execution_str = "SELECT B.beername, size, number, stylename, store, price, rating, pictureurl FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' ORDER BY price ASC;"
+    execution_str = "SELECT B.beername, size, number, stylename, store, price, rating, pictureurl FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' ORDER BY B.beername, number/price DESC;"
     #print execution_str
     result = db.engine.execute(execution_str)
     return result
