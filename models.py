@@ -36,7 +36,7 @@ def search_results(term):
 
 def get_details(beer):
     execution_str = "SELECT B.beername, size, number, stylename, store, price, rating, pictureurl FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' ORDER BY price ASC;"
-    print execution_str
+    #print execution_str
     result = db.engine.execute(execution_str)
     return result
 
@@ -45,9 +45,9 @@ def add_beer(beer, pic, amt, num, price, store):
 	try:
 		db.engine.execute(execution_str_beer)
 	except Exception as ex:
-		print ex
+		#print ex
 	execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price) VALUES (\'" + str(beer) + "\', " + str(num) + ", \'" + str(amt) + "\', \'" + str(store) + "\', " + str(price) + ");"
 	try:
 		db.engine.execute(execution_str_item)
 	except Exception as ex:
-		print ex
+		#print ex
