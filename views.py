@@ -51,8 +51,6 @@ def detailed_page(beer_name):
         i += 1
     print first
     print remaining
-    rating = request.form['rating']
-    print rating
 
     return render_template('detailed-result.html', lowest = first, remaining = remaining)
 
