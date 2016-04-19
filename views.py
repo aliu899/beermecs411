@@ -30,8 +30,9 @@ def home_page():
                         print count
                         break
                     if key.replace("'","") in beer[0].lower():
-                        print "beer2"
+                        print "beer[0]"
                         add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['styl    e'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
+						print "beer3"
     except TypeError as e:
         print e
     return render_template('index.html')
