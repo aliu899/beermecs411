@@ -23,12 +23,11 @@ def home_page():
             for beer in beer_list:
                 for key in beer_dir.keys():
                     if beer[0].lower() in key or key in beer[0].lower():
-                        print "1"
                         print beer[0], key
-                        print str(beer_dir[key]['rAvg'])
-                        print str(beer_dir[key]['style'])
-                        print str(beer_dir[key]['brewery'].replace("'","''"))
-                        add_beer_info(beer[0], str(beer_dir[key]['rAvg']), str(beer_dir[key]['style']), str(beer_dir[key]['brewery'].replace("'","''")))
+                        print beer_dir[key]['rAvg']
+                        print beer_dir[key]['style']
+                        print beer_dir[key]['brewery'].replace("'","''")
+                        add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'], beer_dir[key]['brewery'].replace("'","''"))
                         count += 1
                         print count
                         break
