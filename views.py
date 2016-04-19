@@ -15,17 +15,17 @@ def home_page():
         if verify_user(email, password) == true:
             session['email'] = email
             return redirect(url_for('user_dashboard'))
-    count = 0
-    try:
-        with open('output.json', 'r') as dataFile:
-            beer_dir = json.loads(dataFile.read())
-            beer_list = get_beers()
-            print "rating"
-            for beer in beer_list:
-                print beer[0].lower()
-                if beer[0].lower() in beer_dir.keys():
-                    print beer[0].lower()
-                    add_beer_info(beer[0], beer_dir[beer[0].lower()]['rAvg'], beer_dir[beer[0].lower()]['style'], beer_dir[beer[0].lower()]['brewery'].replace("'",""))
+#    count = 0
+#    try:
+#        with open('output.json', 'r') as dataFile:
+#            beer_dir = json.loads(dataFile.read())
+#            beer_list = get_beers()
+#            print "rating"
+#            for beer in beer_list:
+#                print beer[0].lower()
+#                if beer[0].lower() in beer_dir.keys():
+#                    print beer[0].lower()
+#                    add_beer_info(beer[0], beer_dir[beer[0].lower()]['rAvg'], beer_dir[beer[0].lower()]['style'], beer_dir[beer[0].lower()]['brewery'].replace("'",""))
 #                for key in beer_dir.keys():
 #                    if beer[0].lower() in key.replace("'", ""):
 #                       print beer[0].lower() + " - - - " + key
@@ -36,8 +36,8 @@ def home_page():
 #                        print beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'].replace("'",""), beer_dir[key]['brewery'].replace("'","")
 #                        add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['styl    e'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
 #                        print "beer3"
-    except TypeError as e:
-        print e
+#    except TypeError as e:
+#        print e
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
