@@ -19,7 +19,7 @@ def home_page():
         with open('output.json', 'r') as dataFile:
             beer_dir = json.loads(dataFile.read())
             beer_list = get_beers()
-            print beer_dir['Bumaye']['rAvg']
+            print beer_dir['SDFGHJ']['rAvg']
             # for beer in beer_list:
             #     print beer[0] + " : " + beer_dir[beer[0]]['rAvg']
     except TypeError as e:
