@@ -25,6 +25,7 @@ def home_page():
                 for key in beer_dir.keys():
                     if beer[0].lower() in key or key in beer[0].lower():
                         match += 1
+                        print beer[0].lower() + " - " + key + " : " + beer_dir[key]['rAvg']
                         break
                 total += 1
                 # if beer[0].lower() in beer_dir.keys():
