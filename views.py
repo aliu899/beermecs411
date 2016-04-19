@@ -14,9 +14,17 @@ def home_page():
         if verify_user(email, password) == true:
             session['email'] = email
             return redirect(url_for('user_dashboard'))
-    beer_list = get_beers()
-    for beer in beer_list:
-        print beer[0]
+    try:
+        with open('output.json', 'r') as dataFile:
+            beer_dir = json.loads(dataFile)
+    except TypeError as e:
+        print e
+    print beer_dir
+    # beer_list = get_beers()
+    # for beer in beer_list:
+    #     print beer[0]
+
+
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
