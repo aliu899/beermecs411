@@ -50,7 +50,7 @@ def detailed_page(beer_name):
             remaining.append(item)
         i += 1
     if request.method == 'POST':
-        print (session['email'], beer_name, request.form['rating'])
+        rate_beer(session['email'], beer_name, request.form['rating'])
     return render_template('detailed-result.html', lowest = first, remaining = remaining)
 
 
