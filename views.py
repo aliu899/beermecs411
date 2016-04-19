@@ -21,14 +21,16 @@ def home_page():
             beer_dir = json.loads(dataFile.read())
             beer_list = get_beers()
             print "rating"
-            for beer in beer_list[70:]:
-                for key in beer_dir.keys():
-                    if beer[0].lower() in key.replace("'", ""):
+            for beer in beer_list:
+                if beer[0].lower() in key.replace("'", ""):
+                    add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
+                    break
+#                for key in beer_dir.keys():
+#                    if beer[0].lower() in key.replace("'", ""):
 #                       print beer[0].lower() + " - - - " + key
-                        add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
-                        count += 1
-                        print count
-                        break
+#                        count += 1
+#                        print count
+#                        break
 #                    if key.replace("'","") in beer[0].lower():
 #                        print beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'].replace("'",""), beer_dir[key]['brewery'].replace("'","")
 #                        add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['styl    e'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
