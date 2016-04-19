@@ -54,7 +54,7 @@ def detailed_page(beer_name):
     rating = request.form['rating']
     print rating
 
-    return render_template('detailed-result.html', lowest = first, remaining = remaining)
+    return render_template('detailed-result.html', lowest = first, remaining = remaining, ratingnum = rating)
 
 
 @app.route("/settings", methods=["GET","POST"])
