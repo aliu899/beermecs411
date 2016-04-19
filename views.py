@@ -19,12 +19,13 @@ def home_page():
         with open('output.json', 'r') as dataFile:
             beer_dir = json.loads(dataFile.read())
             beer_list = get_beers()
-            match = 0
-            total = 0
+            count = 0
             for beer in beer_list:
                 for key in beer_dir.keys():
                     if beer[0].lower() in key or key in beer[0].lower():
                         add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'], beer_dir[key]['brewery'])
+                        count += 1
+                        print count
                         break
     except TypeError as e:
         print e
