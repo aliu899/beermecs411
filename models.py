@@ -51,3 +51,10 @@ def add_beer(beer, pic, amt, num, price, store):
         db.engine.execute(execution_str_item)
     except Exception as ex:
         print "error adding listing"
+
+def rate_beer(email_address, beer, value):
+    execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + value + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
+    try:
+        db.engine.execute(execution_str)
+    except:
+        print execution_str
