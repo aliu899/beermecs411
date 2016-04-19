@@ -27,12 +27,12 @@ def home_page():
 #                       print beer[0].lower() + " - - - " + key
                         add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
                         count += 1
+                        print count
                         break
                     if key.replace("'","") in beer[0].lower():
                         add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['styl    e'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
     except TypeError as e:
         print e
-    print count
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
