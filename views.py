@@ -20,7 +20,7 @@ def home_page():
             beer_dir = json.loads(dataFile)
             print beer_dir
     except TypeError as e:
-        print e
+        print e, "HELLO"
     # beer_list = get_beers()
     # for beer in beer_list:
     #     print beer[0]
