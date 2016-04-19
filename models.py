@@ -54,7 +54,7 @@ def add_beer(beer, pic, amt, num, price, store):
         try:
             db.engine.execute(execution_str_upd)
         except:
-			print execution_str_upd
+            print execution_str_upd
 
 def rate_beer(email_address, beer, value):
     execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + value + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
@@ -65,5 +65,5 @@ def rate_beer(email_address, beer, value):
 
 def get_beers():
     execution_str = "SELECT beername FROM \"Beer\";"
-	result = db.engine.execute(execution_str)
-	return result
+    result = db.engine.execute(execution_str)
+    return result
