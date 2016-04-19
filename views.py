@@ -24,7 +24,6 @@ def home_page():
             for beer in beer_list:
                 if beer[0].lower() in key:
                     add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'], beer_dir[key]['brewery'].replace("'",""))
-                    break
 #                for key in beer_dir.keys():
 #                    if beer[0].lower() in key.replace("'", ""):
 #                       print beer[0].lower() + " - - - " + key
