@@ -75,8 +75,10 @@ def get_beers():
     result = db.engine.execute(execution_str)
     return result
 
-def notify():
-    execution_str = "SELECT * FROM \"Rating\";"
+def get_notify_info():
+    execution_str = "SELECT R.beername, price, size, number, store, email FROM \"ItemListing\" AS L, \"Rating\" AS R WHERE L.beername = R.beername AND R.bestValue < (L.number*L.size/L.price);"
+    result = db.engine.execute(execution_str)
+    return result
 
 def add_beer_info(beer, rating, style, brewer):
     print beer, rating, style, brewer
