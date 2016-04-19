@@ -74,3 +74,9 @@ def get_beers():
     execution_str = "SELECT beername FROM \"Beer\";"
     result = db.engine.execute(execution_str)
     return result
+
+def notify():
+    execution_str = "SELECT * FROM \"Rating\";"
+
+def add_beer_info(beer, rating, style, brewer):
+    execution_str = "UPDATE \"Beer\" SET stylename=\'" + str(style) + "\', brewername=\'" + str(brewer) + "\', rating=\'" + str(rating) + "\' WHERE beername=\'" + beer + "\';"
