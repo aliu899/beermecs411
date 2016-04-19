@@ -22,6 +22,7 @@ def home_page():
             beer_list = get_beers()
             print "rating"
             for beer in beer_list:
+                print "beer"
                 for key in beer_dir.keys():
                     if beer[0].lower() in key.replace("'", ""):
 #                       print beer[0].lower() + " - - - " + key
