@@ -18,7 +18,7 @@ def home_page():
     try:
         with open('output.json', 'r') as dataFile:
             beer_dir = json.loads(dataFile.read())
-            print beer_dir
+            print beer_dir.keys()
     except TypeError as e:
         print e
     # beer_list = get_beers()
