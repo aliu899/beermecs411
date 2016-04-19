@@ -50,7 +50,11 @@ def add_beer(beer, pic, amt, num, price, store):
     try:
         db.engine.execute(execution_str_item)
     except Exception as ex:
-        print "error adding listing"
+        try:
+            execution_str_upd = "UPDATE "ItemListing" SET price=" + price + " WHERE beername=\'" + beer + "\' AND number=" + num +" AND size=" + amt + " AND store=\'" + store + "\';"
+            db.engine.execute(execution_str_upd)
+        except:
+			print execution_str_upd
 
 def rate_beer(email_address, beer, value):
     execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + value + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
