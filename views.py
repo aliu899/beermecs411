@@ -3,6 +3,7 @@ __author__ = 'Aaron'
 from app import app
 from models import *
 from flask import render_template, request, session, redirect, url_for
+import json
 
 @app.route("/", methods=["GET","POST"])
 def home_page():
