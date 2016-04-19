@@ -27,7 +27,7 @@ def home_page():
                     match += 1
                     total += 1
                 else:
-                    # print beer[0] + " : 3"
+                    print beer[0].lower()
                     total += 1
             print match, total
     except TypeError as e:
