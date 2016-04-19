@@ -2,9 +2,13 @@
 from models import get_notify_info
 
 notifications = get_notify_info()
-print notifications
+for n in notifications:
+	email(n)
 
-#def email():
+def email(notification):
+	print notification
+
+
 #	content = """From: Beer Me <beer.me.application@gmail.com>
 #	Subject: Beer Me Price Update
 #
