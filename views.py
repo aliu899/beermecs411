@@ -15,18 +15,18 @@ def home_page():
         if verify_user(email, password) == true:
             session['email'] = email
             return redirect(url_for('user_dashboard'))
-    try:
-        with open('output.json', 'r') as dataFile:
-            beer_dir = json.loads(dataFile.read())
-            beer_list = get_beers()
-            for beer in beer_list:
-                for key in beer_dir.keys():
-                    if beer[0].lower() in key or key in beer[0].lower():
-                        print beer[0].lower() + " - - - " + key
-                        add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'], beer_dir[key]['brewery'].replace("'","''"))
-                        break
-    except TypeError as e:
-        print e
+    # try:
+    #     with open('output.json', 'r') as dataFile:
+    #         beer_dir = json.loads(dataFile.read())
+    #         beer_list = get_beers()
+    #         for beer in beer_list:
+    #             for key in beer_dir.keys():
+    #                 if beer[0].lower() in key or key in beer[0].lower():
+    #                     print beer[0].lower() + " - - - " + key
+    #                     add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['style'], beer_dir[key]['brewery'].replace("'","''"))
+    #                     break
+    # except TypeError as e:
+    #     print e
 
 
 
