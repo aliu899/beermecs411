@@ -23,7 +23,7 @@ def home_page():
             total = 0
             for beer in beer_list:
                 for key in beer_dir.keys():
-                    if beer[0].lower() in key:
+                    if beer[0].lower() in key or key in beer[0].lower():
                         match += 1
                         break
                 total += 1
