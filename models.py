@@ -51,6 +51,7 @@ def add_beer(beer, pic, amt, num, price, store):
     try:
         db.engine.execute(execution_str_item)
     except Exception as ex:
+        print ex
         try:
             db.engine.execute(execution_str_upd)
         except:
