@@ -20,6 +20,7 @@ def home_page():
         with open('output.json', 'r') as dataFile:
             beer_dir = json.loads(dataFile.read())
             beer_list = get_beers()
+			print "rating"
             for beer in beer_list:
                 for key in beer_dir.keys():
                     if beer[0].lower() in key.replace("'", ""):
