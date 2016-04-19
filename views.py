@@ -20,7 +20,7 @@ def home_page():
             beer_dir = json.loads(dataFile.read())
             beer_list = get_beers()
             for beer in beer_list:
-                print beer_dir[beer[0]]['rAvg']
+                print beer[0] + " : " + beer_dir[beer[0]]['rAvg']
     except TypeError as e:
         print e
 
