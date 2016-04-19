@@ -68,21 +68,23 @@
             <p>Style: {{ lowest.stylename }}</p>
             <p>Rating: {{ lowest.rating }}</p>
             <br>
+            <form method="POST">
+                <span class="star-rating">
+                    <link href="../static/css/starstyle.css" rel="stylesheet">
+                    <input type="radio" name="rating" value="1"/><i></i>
+                    <input type="radio" name="rating" value="2"/><i></i>
+                    <input type="radio" name="rating" value="3"/><i></i>
+                    <input type="radio" name="rating" value="4"/><i></i>
+                    <input type="radio" name="rating" value="5"/><i></i>
+                </span>
+         <br><br>
+        <input type="submit" class="btn btn-info" value="Rate It!">
+    </form>
         </div>
         <!-- /.col-md-4 -->
     <div class="col-md-4">
         <br>
-    <form method="POST">
-        <span class="star-rating">
-          <link href="../static/css/starstyle.css" rel="stylesheet">
-          <input type="radio" name="rating" value="1"/><i></i>
-          <input type="radio" name="rating" value="2"/><i></i>
-          <input type="radio" name="rating" value="3"/><i></i>
-          <input type="radio" name="rating" value="4"/><i></i>
-          <input type="radio" name="rating" value="5"/><i></i>
-        </span>
-        <input type="submit" value="Rate It!">
-    </form>
+
     </div>
 
     </div>

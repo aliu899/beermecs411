@@ -1,7 +1,7 @@
 import smtplib
 
 content = """From: Beer Me <beer.me.application@gmail.com>
-Subject: Beer Me Update
+Subject: Beer Me Price Update
 
 We found some changes in beer prices that might interest you. """
 mail = smtplib.SMTP('smtp.gmail.com', 587)
