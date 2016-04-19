@@ -16,7 +16,7 @@ def home_page():
             return redirect(url_for('user_dashboard'))
     beer_list = get_beers()
     for beer in beer_list:
-        print beer.name
+        print beer
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
