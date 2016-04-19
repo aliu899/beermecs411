@@ -57,10 +57,10 @@ def add_beer(beer, pic, amt, num, price, store):
         except:
             print execution_str_upd
 
-def rate_beer(email_address, beer, value):
-    execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + str(value) + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
+def rate_beer(email_address, beer, rating):
+    execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + str(rating) + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
     print execution_str
-    execution_str_upd = "UPDATE \"Rating\" SET rating=" + str(value) + ", bestValue=(SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername) WHERE beername=\'" + beer + "\' AND email=\'" + email_address + "\';"
+    execution_str_upd = "UPDATE \"Rating\" SET rating=" + str(rating) + " WHERE beername=\'" + beer + "\' AND email=\'" + email_address + "\';"
     print execution_str_upd
     try:
         db.engine.execute(execution_str)
@@ -76,7 +76,7 @@ def get_beers():
     return result
 
 def get_notify_info():
-    execution_str = "SELECT R.beername, price, size, number, store, email FROM \"ItemListing\" AS L, \"Rating\" AS R WHERE L.beername = R.beername AND R.bestValue < (L.number*L.size/L.price);"
+    execution_str = "SELECT R.beername, price, size, number, store, email, (L.number*L.size/L.price) FROM \"ItemListing\" AS L, \"Rating\" AS R WHERE L.beername = R.beername AND R.bestValue < (L.number*L.size/L.price) AND R.rating >= 4;"
     result = db.engine.execute(execution_str)
     return result
 
@@ -87,3 +87,6 @@ def add_beer_info(beer, rating, style, brewer):
         db.engine.execute(execution_str)
     except Exception as ex:
         print ex
+
+def update_best_value(email_address, beer, value):
+    execution_str = "UPDATE \"Rating\" SET bestValue=" + str(value) + " WHERE beername=\'" + str(beer) + "\' AND email=\'" + email_address + "\';"

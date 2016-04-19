@@ -2,7 +2,7 @@
 from models import get_notify_info
 
 def email(notification):
-    body = "We found a good deal on one of your favorite beers that might interest you.  " + str(notification[4]) + " is selling a " + str(notification[2]) + "oz " + str(notification[3]) + "pk of " + str(notification[0]) + " for $" + str(notification[1])
+    body = "We found a good deal on one of your favorite beers that might interest you.  " + str(notification[4]) + " is selling a " + str(notification[2]) + "oz " + str(notification[3]) + "pk of " + str(notification[0]) + " for $" + str(notification[1] + "!"
     print body
 
 #	content = """From: Beer Me <beer.me.application@gmail.com>
