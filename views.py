@@ -17,7 +17,8 @@ def home_page():
             return redirect(url_for('user_dashboard'))
     try:
         with open('output.json', 'r') as dataFile:
-            beer_dir = json.loads(dataFile)
+            beer_dir = json.loads(dataFile.read())
+            print beer_dir
     except TypeError as e:
         print e
     # beer_list = get_beers()
