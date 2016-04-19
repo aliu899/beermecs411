@@ -22,7 +22,6 @@ def home_page():
             beer_list = get_beers()
             print "rating"
             for beer in beer_list:
-                print "beer"
                 for key in beer_dir.keys():
                     if beer[0].lower() in key.replace("'", ""):
 #                       print beer[0].lower() + " - - - " + key
@@ -31,6 +30,7 @@ def home_page():
                         print count
                         break
                     if key.replace("'","") in beer[0].lower():
+                        print "beer2"
                         add_beer_info(beer[0], beer_dir[key]['rAvg'], beer_dir[key]['styl    e'].replace("'",""), beer_dir[key]['brewery'].replace("'",""))
     except TypeError as e:
         print e
