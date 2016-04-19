@@ -18,12 +18,12 @@ def home_page():
     try:
         with open('output.json', 'r') as dataFile:
             beer_dir = json.loads(dataFile.read())
-            print beer_dir.keys()
+            beer_list = get_beers()
+            for beer in beer_list:
+                print beer_dir[beer[0]]['rAvg']
     except TypeError as e:
         print e
-    # beer_list = get_beers()
-    # for beer in beer_list:
-    #     print beer[0]
+
 
 
     return render_template('index.html')
