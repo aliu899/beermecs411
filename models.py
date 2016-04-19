@@ -93,4 +93,7 @@ def add_beer_info(beer, rating, style, brewer):
 
 def update_best_value(email_address, beer, value):
     execution_str = "UPDATE \"Rating\" SET bestValue=" + str(value) + " WHERE beername=\'" + str(beer) + "\' AND email=\'" + email_address + "\';"
-    db.engine.execute(execution_str)
+    try:
+        db.engine.execute(execution_str)
+    except Exception ex:
+        print ex
