@@ -24,7 +24,7 @@ def home_page():
                 for key in beer_dir.keys():
                     if beer[0].lower() in key or key in beer[0].lower():
                         print "1"
-                        print beer[0]
+                        print beer[0], key
                         print beer_dir[key]['rAvg']
                         print beer_dir[key]['style']
                         print beer_dir[key]['brewery'].replace("'","''")
