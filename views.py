@@ -14,6 +14,7 @@ def home_page():
         if verify_user(email, password) == true:
             session['email'] = email
             return redirect(url_for('user_dashboard'))
+    print get_beers()
     return render_template('index.html')
 
 @app.route("/signup", methods=["GET","POST"])
