@@ -26,8 +26,6 @@ def home_page():
                     if beer[0].lower() in key:
                         match += 1
                         break
-                    else:
-                        print beer[0].lower()
                 total += 1
                 # if beer[0].lower() in beer_dir.keys():
                 #     # print beer[0] + " : " + beer_dir[beer[0]]['rAvg']
