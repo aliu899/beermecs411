@@ -22,7 +22,7 @@ def home_page():
             match = 0
             total = 0
             for beer in beer_list:
-                if beer[0] in beer_dir.keys():
+                if beer[0].lower() in beer_dir.keys():
                     # print beer[0] + " : " + beer_dir[beer[0]]['rAvg']
                     match += 1
                     total += 1
