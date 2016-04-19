@@ -51,7 +51,7 @@ def add_beer(beer, pic, amt, num, price, store):
         db.engine.execute(execution_str_item)
     except Exception as ex:
         try:
-            execution_str_upd = "UPDATE "ItemListing" SET price=" + price + " WHERE beername=\'" + beer + "\' AND number=" + num +" AND size=" + amt + " AND store=\'" + store + "\';"
+            execution_str_upd = "UPDATE \"ItemListing\" SET price=" + price + " WHERE beername=\'" + beer + "\' AND number=" + num +" AND size=" + amt + " AND store=\'" + store + "\';"
             db.engine.execute(execution_str_upd)
         except:
 			print execution_str_upd
