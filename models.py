@@ -80,3 +80,7 @@ def notify():
 
 def add_beer_info(beer, rating, style, brewer):
     execution_str = "UPDATE \"Beer\" SET stylename=\'" + str(style) + "\', brewername=\'" + str(brewer) + "\', rating=\'" + str(rating) + "\' WHERE beername=\'" + beer + "\';"
+    try:
+        db.engine.execute(execution_str)
+    except:
+        print execution_str

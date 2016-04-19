@@ -24,18 +24,8 @@ def home_page():
             for beer in beer_list:
                 for key in beer_dir.keys():
                     if beer[0].lower() in key or key in beer[0].lower():
-                        match += 1
-                        print beer[0].lower() + " - " + key + " : " + beer_dir[key]['rAvg']
+                        add_beer_info(beer_dir[key]['rAvg'], beer_dir[key]['style'], beer_dir[key]['brewery'])
                         break
-                total += 1
-                # if beer[0].lower() in beer_dir.keys():
-                #     # print beer[0] + " : " + beer_dir[beer[0]]['rAvg']
-                #     match += 1
-                #     total += 1
-                # else:
-                #     print beer[0].lower()
-                #     total += 1
-            print match, total
     except TypeError as e:
         print e
 
