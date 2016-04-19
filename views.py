@@ -36,7 +36,7 @@ def user_dashboard():
         search_hits = search_results(request.form['x'])
     return render_template('query.html', results = search_hits)
 
-@app.route("/detail/<beer_name>", methods=["GET", "POST"])
+@app.route("/detail/<beer_name>", methods=["GET"])
 def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
