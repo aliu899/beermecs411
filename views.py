@@ -36,7 +36,7 @@ def user_dashboard():
         search_hits = search_results(request.form['x'])
     return render_template('query.html', results = search_hits)
 
-@app.route("/detail/<beer_name>", methods=["GET"])
+@app.route("/detail/<beer_name>", methods=["GET", "POST"])
 def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
@@ -51,8 +51,8 @@ def detailed_page(beer_name):
         i += 1
     print first
     print remaining
-   # rating = request.form['rating']
-   # print rating
+    rating = request.form['rating']
+    print rating
 
     return render_template('detailed-result.html', lowest = first, remaining = remaining)
 
