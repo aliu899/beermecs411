@@ -48,7 +48,7 @@ def add_beer(beer, pic, amt, num, price, store):
         print "error adding beer"
     execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price) VALUES (\'" + str(beer) + "\', " + str(num) + ", " + str(amt) + ", \'" + str(store) + "\', " + str(price) + ");"
     execution_str_upd = "UPDATE \"ItemListing\" SET price=" + str(price) + " WHERE beername=\'" + beer + "\' AND number=" + str(num) +" AND size=" + str(amt) + " AND store=\'" + str(store) + "\';"
-    execution_str_upd_rate = "UPDATE \"Rating\" SET bestValue=(SELECT MAX(number*size/price) FROM, \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername) WHERE beername=\'" + beer + "\' AND bestValue > \'" + (SELECT MAX(number*size/price) FROM, \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername);"
+    execution_str_upd_rate = "UPDATE \"Rating\" SET bestValue=(SELECT MAX(number*size/price) FROM, \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername) WHERE beername=\'" + beer + "\' AND bestValue > (SELECT MAX(number*size/price) FROM, \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername);"
     try:
         db.engine.execute(execution_str_item)
         db.engine.execute(execution_str_upd_rate))
