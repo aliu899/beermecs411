@@ -61,7 +61,7 @@ def add_beer(beer, pic, amt, num, price, store):
             print execution_str_upd
 
 def rate_beer(email_address, beer, rating):
-    execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + str(rating) + ", (SELECT MAX(number*size/price) FROM \"ItemListing\" beername=\'" + beer + "\' GROUP BY beername));"
+    execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + str(rating) + ", (SELECT MAX(number*size/price) FROM \"ItemListing\" WHERE beername=\'" + beer + "\' GROUP BY beername));"
     print execution_str
     execution_str_upd = "UPDATE \"Rating\" SET rating=" + str(rating) + " WHERE beername=\'" + beer + "\' AND email=\'" + email_address + "\';"
     print execution_str_upd
