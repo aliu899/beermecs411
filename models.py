@@ -58,13 +58,25 @@ def add_beer(beer, pic, amt, num, price, store):
             print execution_str_upd
 
 def rate_beer(email_address, beer, value):
-    execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + value + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
+    execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + str(value) + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
+    print execution_str
+    execution_str_upd = "UPDATE \"Rating\" SET rating=" + str(value) + ", bestValue=(SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername) WHERE beername=\'" + beer + "\' AND email=\'" + email_address + "\';"
+    print execution_str_upd
     try:
         db.engine.execute(execution_str)
     except:
-        print execution_str
+        try:
+            db.engine.execute(execution_str_upd)
+        except:
+            print execution_str
 
 def get_beers():
     execution_str = "SELECT beername FROM \"Beer\";"
     result = db.engine.execute(execution_str)
     return result
+
+def notify():
+    execution_str = "SELECT * FROM \"Rating\";"
+
+def add_beer_info(beer, rating, style, brewer):
+    execution_str = "UPDATE \"Beer\" SET stylename=\'" + str(style) + "\', brewername=\'" + str(brewer) + "\', rating=\'" + str(rating) + "\' WHERE beername=\'" + beer + "\';"
