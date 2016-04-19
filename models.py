@@ -95,5 +95,5 @@ def update_best_value(email_address, beer, value):
     execution_str = "UPDATE \"Rating\" SET bestValue=" + str(value) + " WHERE beername=\'" + str(beer) + "\' AND email=\'" + email_address + "\';"
     try:
         db.engine.execute(execution_str)
-    except Exception ex:
+    except Exception as ex:
         print ex
