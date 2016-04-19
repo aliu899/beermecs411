@@ -51,12 +51,12 @@ def add_beer(beer, pic, amt, num, price, store):
     execution_str_upd_rate = "UPDATE \"Rating\" SET bestValue=(SELECT MAX(number*size/price) FROM, \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername) WHERE beername=\'" + beer + "\' AND bestValue > (SELECT MAX(number*size/price) FROM, \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername);"
     try:
         db.engine.execute(execution_str_item)
-        db.engine.execute(execution_str_upd_rate))
+        db.engine.execute(execution_str_upd_rate)
     except Exception as ex:
         print ex
         try:
             db.engine.execute(execution_str_upd)
-            db.engine.execute(execution_str_upd_rate))
+            db.engine.execute(execution_str_upd_rate)
         except:
             print execution_str_upd
 
