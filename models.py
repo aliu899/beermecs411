@@ -59,10 +59,14 @@ def add_beer(beer, pic, amt, num, price, store):
 
 def rate_beer(email_address, beer, value):
     execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + value + ", (SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername));"
+    execution_str_upd = "UPDATE \"Rating\" SET rating=" + rating + ", bestValue=(SELECT MAX(number*size/price) FROM \"Beer\" AS B, \"ItemListing\" AS L WHERE B.beername=L.beername AND B.beername=\'" + beer + "\' GROUP BY B.beername) WHERE beername=\'" + beer + "\' AND email=\'" + email + "\';"
     try:
         db.engine.execute(execution_str)
     except:
-        print execution_str
+        try:
+            db.engine.execute(execution_str)
+        excpet:
+            print execution_str
 
 def get_beers():
     execution_str = "SELECT beername FROM \"Beer\";"
