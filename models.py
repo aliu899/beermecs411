@@ -47,7 +47,7 @@ def add_beer(beer, pic, amt, num, price, store):
     except Exception as ex:
         print "error adding beer"
     execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price) VALUES (\'" + str(beer) + "\', " + str(num) + ", " + str(amt) + ", \'" + str(store) + "\', " + str(price) + ");"
-    execution_str_upd = "UPDATE \"ItemListing\" SET price=" + price + " WHERE beername=\'" + beer + "\' AND number=" + num +" AND size=" + amt + " AND store=\'" + store + "\';"
+    execution_str_upd = "UPDATE \"ItemListing\" SET price=" + str(price) + " WHERE beername=\'" + beer + "\' AND number=" + str(num) +" AND size=" + str(amt) + " AND store=\'" + str(store) + "\';"
     try:
         db.engine.execute(execution_str_item)
     except Exception as ex:
@@ -62,3 +62,8 @@ def rate_beer(email_address, beer, value):
         db.engine.execute(execution_str)
     except:
         print execution_str
+
+def get_beers():
+    execution_str = "SELECT beername FROM \"Beer\";"
+	result = db.engine.execute(execution_str)
+	return result
