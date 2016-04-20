@@ -112,7 +112,7 @@ def get_predicted_rating(email_address, beer):
                 if c[0] == 1:
                     return .25 * a[0] + .75 * d[0]
                 if c[0] == 2:
-                    print "2":
+                    print "2"
                     val = .33 * a[0] + .67 * d[0]
                     print val
                     return val
