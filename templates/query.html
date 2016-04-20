@@ -11,6 +11,8 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="../static/css/custom.css" rel="stylesheet">
+
 
 <!-- Custom CSS -->
 <style>
@@ -56,7 +58,7 @@
                     <div class="input-group-btn search-panel">
                     </div>
                     <input type="hidden" name="search_param" value="all" id="search_param">
-                    <input type="text" class="form-control" name="x" placeholder="Search term...">
+                    <input type="text" class="form-control" name="x" placeholder="Beer name...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"
                                                                             id="search-button"></span>
@@ -73,13 +75,13 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Results</h1>
+                <h2 class="page-header">Results</h2>
             </div>
         </div>
         <!-- /.row -->
         <!-- Query Results -->
         {% for result in results %}
-        <div class="row">
+        <div class="row product-row">
             <div class="col-md-7">
                 <div>
                     <img class="img-responsive beer-logo"
