@@ -78,6 +78,11 @@ def get_beers():
     result = db.engine.execute(execution_str)
     return result
 
+def get_beers_rating():
+    execution_str = "SELECT beername, rating FROM \"Beer\";"
+    result = db.engine.execute(execution_str)
+    return result
+
 def get_notify_info():
     execution_str = "SELECT DISTINCT ON(R.beername) R.beername, price, size, number, store, email, L.number*L.size/L.price FROM \"ItemListing\" AS L, \"Rating\" AS R WHERE L.beername = R.beername AND R.bestValue+0.001 < (L.number*L.size/L.price) AND R.rating >= 4 ORDER BY R.beername, (L.number*L.size/L.price) DESC;"
     result = db.engine.execute(execution_str)
