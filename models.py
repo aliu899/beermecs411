@@ -100,10 +100,13 @@ def update_best_value(email_address, beer, value):
 
 def get_predicted_rating(email_address, beer):
     execution_str_avg = "SELECT AVG(R.rating) FROM \"Rating\" AS R, \"Beer\" AS B WHERE R.beername = B.beername AND R.email=\'" + email_address + "\' AND B.stylename = (SELECT stylename FROM \"Beer\" WHERE beername=\'" + beer + "\') GROUP BY B.stylename;"
+    print execution_str_avg
     avg = db.engine.execute(execution_str_avg)
-    execution_str_count = "SELECT COUNT(R.rating) FROM \"Rating\" AS R, \"Beer\" AS B WHERE R    .beername = B.beername AND R.email=\'" + email_address + "\' AND B.stylename = (SELECT st    ylename FROM \"Beer\" WHERE beername=\'" + beer + "\') GROUP BY B.stylename;"
+    execution_str_count = "SELECT COUNT(R.rating) FROM \"Rating\" AS R, \"Beer\" AS B WHERE R.beername = B.beername AND R.email=\'" + email_address + "\' AND B.stylename = (SELECT stylename FROM \"Beer\" WHERE beername=\'" + beer + "\') GROUP BY B.stylename;"
+    print execution_str_count
     number_ratings = db.engine.execute(execution_str_count)
     execution_str_rat = "SELECT rating FROM \"Beer\" WHERE beername=\'" + beer + "\';"
+    print execution_str_rat
     default_rating = db.engine.execute(execution_str_rat)
     for d in default_ratings:
         for c in number_ratings:
