@@ -99,6 +99,7 @@ def update_best_value(email_address, beer, value):
         print ex
 
 def get_predicted_rating(email_address, beer):
+    print "getting"
     execution_str_avg = "SELECT AVG(R.rating) FROM \"Rating\" AS R, \"Beer\" AS B WHERE R.beername = B.beername AND R.email=\'" + email_address + "\' AND B.stylename = (SELECT stylename FROM \"Beer\" WHERE beername=\'" + beer + "\') GROUP BY B.stylename;"
     print execution_str_avg
     avg = db.engine.execute(execution_str_avg)
