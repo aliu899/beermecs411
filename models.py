@@ -110,7 +110,7 @@ def get_predicted_rating(email_address, beer):
     print execution_str_rat
     default_rating = db.engine.execute(execution_str_rat)
     print "sql executed"
-    for d in default_ratings:
+    for d in default_rating:
         print d
         for c in number_ratings:
             print c
