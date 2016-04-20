@@ -112,7 +112,7 @@ def get_predicted_rating(email_address, beer):
                 if c[0] == 1:
                     return 0.25 * float(a[0]) + 0.75 * float(d[0])
                 if c[0] == 2:
-                    return= 0.33 * float(a[0]) + 0.67 * float(d[0])
+                    return 0.33 * float(a[0]) + 0.67 * float(d[0])
                 if c[0] == 3:
                     return 0.5 * float(a[0]) + 0.5 * float(d[0])
                 if c[0] == 4:
