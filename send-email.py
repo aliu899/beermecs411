@@ -1,4 +1,4 @@
-#import smtplib
+import smtplib
 from models import get_notify_info, update_best_value
 
 def email(notification):
