@@ -5972,6 +5972,9 @@ button.close {
   height: 50px;
   overflow: scroll;
 }
+.product-row{
+  margin-bottom: 5px;
+}
 @media (min-width: 768px) {
   .modal-dialog {
     width: 600px;
