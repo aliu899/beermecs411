@@ -113,7 +113,6 @@ def get_predicted_rating(email_address, beer):
     for d in default_rating:
         for c in number_ratings:
             for a in avg:
-                print type(c[0]), type(a[0]), type(d[0])
                 if c[0] == 1:
                     return 0.25 * float(a[0]) + 0.75 * float(d[0])
                 if c[0] == 2:

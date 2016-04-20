@@ -65,16 +65,17 @@ def user_dashboard():
         for beer in beers:
             predicted = get_predicted_rating(session['email'], beer[0])
             beers_predicted.append((beer[0], predicted))
+        favorite_style = 'Because you liked ' + favorite_style + ' ...'
 
     else:
         beers = get_beers_rating()
         beers_predicted = []
         for beer in beers:
             beers_predicted.append((beer[0], beer[1]))
+        favorite_style = 'Recommended for you'
     sorted(beers_predicted, key=lambda rating: rating[1])
     top3 = [beers_predicted[0], beers_predicted[1], beers_predicted[2]]
-    print top3
-    return render_template('query.html', results = search_hits, based_on = favorite_style)
+    return render_template('query.html', results = search_hits, based_on = favorite_style, recommended = top3)
 
 @app.route("/detail/<beer_name>", methods=["GET", "POST"])
 def detailed_page(beer_name):
