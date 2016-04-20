@@ -109,9 +109,13 @@ def get_predicted_rating(email_address, beer):
     execution_str_rat = "SELECT rating FROM \"Beer\" WHERE beername=\'" + beer + "\';"
     print execution_str_rat
     default_rating = db.engine.execute(execution_str_rat)
+    print "sql executed"
     for d in default_ratings:
+        print d
         for c in number_ratings:
+            print c
             for a in avg:
+                print a
                 if c[0] == 1:
                     return .25 * a[0] + .75 * d[0]
                 if c[0] == 2:
