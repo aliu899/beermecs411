@@ -125,3 +125,15 @@ def get_predicted_rating(email_address, beer):
                 if c[0] >= 5:
                     return 0.75 * float(a[0]) + 0.25 * float(d[0])
         return d[0]
+
+def get_favorite_style(email_address):
+    execution_str = "SELECT DISTINCT ON(s.style) s.style, avg_rating FROM (SELECT B.stylename AS style, AVG(R.rating) AS avg_rating FROM \"Beer\" AS B, \"Rating\" AS R WHERE B.beername=R.beername AND R.email=\'" + email_address + "\' GROUP BY B. stylename) AS s ORDER BY s.style, avg_rating DESC;"
+    result = db.engine.execute(execution_str)
+    for r in result:
+        return r[0]
+    return "empty"
+
+def get_beers_by_style(style):
+    execution_str = "SELECT beername FROM \"Beer\" WHERE stylename=\'" + style + "\';"
+    result = db.engine.execute(execution_str)
+    return result
