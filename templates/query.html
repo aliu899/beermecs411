@@ -107,7 +107,7 @@
             {% for beer in recommended %}
             <div class="col-sm-4 col-xs-6">
                 <a href="/detail/{{ beer[0] }}">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                    <img class="img-responsive portfolio-item" src="{{ beer[2] }}" alt="">
                     <br>
                     <p align="center">{{ beer[0] }}</p></a>
                     <p>Predicted Rating: {{ beer[1] }}</p>
