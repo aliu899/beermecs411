@@ -110,16 +110,13 @@ def get_predicted_rating(email_address, beer):
             for a in avg:
                 print type(c[0]), type(a[0]), type(d[0])
                 if c[0] == 1:
-                    return .25 * a[0] + .75 * d[0]
+                    return 0.25 * float(a[0]) + 0.75 * float(d[0])
                 if c[0] == 2:
-                    print "2"
-                    val = 0.33 * float(a[0]) + 0.67 * float(d[0])
-                    print val
-                    return val
+                    return= 0.33 * float(a[0]) + 0.67 * float(d[0])
                 if c[0] == 3:
-                    return .5 * a[0] + .5 * d[0]
+                    return 0.5 * float(a[0]) + 0.5 * float(d[0])
                 if c[0] == 4:
-                    return .67 * a[0] + .33 * d[0]
+                    return 0.67 * float(a[0]) + 0.33 * float(d[0])
                 if c[0] >= 5:
-                    return .75 * a[0] + .25 * d[0]
+                    return 0.75 * float(a[0]) + 0.25 * float(d[0])
         return d[0]
