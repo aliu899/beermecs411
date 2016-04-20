@@ -133,6 +133,6 @@ def get_favorite_style(email_address):
     return "empty"
 
 def get_beers_by_style(style):
-    execution_str = "SELECT beername FROM \"Beer\" WHERE stylename=\'" + style + "\';"
+    execution_str = "SELECT beername, pictureurl FROM \"Beer\" WHERE stylename=\'" + style + "\';"
     result = db.engine.execute(execution_str)
     return result
