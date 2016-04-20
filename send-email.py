@@ -9,13 +9,13 @@ def email(notification):
     msg['To'] = notification[5]
     msg['From'] = 'beer.me.application@gmail.com'
 
-	mail = smtplib.SMTP('smtp.gmail.com', 587)
-	mail.ehlo()
+    mail = smtplib.SMTP('smtp.gmail.com', 587)
+    mail.ehlo()
 
-	mail.starttls()
-	mail.login('beer.me.application@gmail.com','beerme411')
-	mail.sendmail('beer.me.application@gmail.com', notification[5], msg.as_string())
-	mail.close()
+    mail.starttls()
+    mail.login('beer.me.application@gmail.com','beerme411')
+    mail.sendmail('beer.me.application@gmail.com', notification[5], msg.as_string())
+    mail.close()
 
 notifications = get_notify_info()
 for n in notifications:
