@@ -66,7 +66,6 @@ def detailed_page(beer_name):
         return redirect(url_for('home_page'))
     beer_result = get_details(beer_name)
     predictive_rating = get_predicted_rating(session['email'], beer_name)
-    print predictive_rating
     remaining = []
     i = 0
     for item in beer_result:
@@ -77,7 +76,7 @@ def detailed_page(beer_name):
         i += 1
     if request.method == 'POST':
         rate_beer(session['email'], beer_name, request.form['rating'])
-    return render_template('detailed-result.html', lowest = first, remaining = remaining)
+    return render_template('detailed-result.html', lowest = first, remaining = remaining, predicted = predictive_rating)
 
 
 @app.route("/settings", methods=["GET","POST"])
