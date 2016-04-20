@@ -71,11 +71,10 @@ def user_dashboard():
         beers = get_beers_rating()
         beers_predicted = []
         for beer in beers:
-            beers_predicted.append((beer[0], beer[1]))
+            beers_predicted.append((beer[0], beer[1]), beer[2])
         favorite_style = 'Recommended for you'
     sorted(beers_predicted, key=lambda rating: rating[1])
     top3 = [beers_predicted[0], beers_predicted[1], beers_predicted[2]]
-    print beers_predicted[0][0], beers_predicted[1][0], beers_predicted[2][0]
     return render_template('query.html', results = search_hits, based_on = favorite_style, recommended = top3)
 
 @app.route("/detail/<beer_name>", methods=["GET", "POST"])

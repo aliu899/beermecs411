@@ -79,7 +79,7 @@ def get_beers():
     return result
 
 def get_beers_rating():
-    execution_str = "SELECT beername, rating FROM \"Beer\";"
+    execution_str = "SELECT beername, rating, pictureurl FROM \"Beer\";"
     result = db.engine.execute(execution_str)
     return result
 
