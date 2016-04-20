@@ -43,7 +43,7 @@ def get_details(beer):
 def add_beer(beer, pic, amt, num, price, store):
     execution_str_beer = "INSERT INTO \"Beer\" (beername, pictureurl) VALUES (\'" + beer + "\', \'" + pic + "\');"
     try:
-		db.engine.execute(execution_str_beer)
+        db.engine.execute(execution_str_beer)
     except Exception as ex:
         print "error adding beer"
     execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price) VALUES (\'" + str(beer) + "\', " + str(num) + ", " + str(amt) + ", \'" + str(store) + "\', " + str(price) + ");"
