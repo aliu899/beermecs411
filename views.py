@@ -65,8 +65,8 @@ def detailed_page(beer_name):
     if 'email' not in session:
         return redirect(url_for('home_page'))
     beer_result = get_details(beer_name)
-	predictive_rating = get_predictive_rating(session['email'], beer_name)
-	print predictive_rating
+    predictive_rating = get_predictive_rating(session['email'], beer_name)
+    print predictive_rating
     remaining = []
     i = 0
     for item in beer_result:
