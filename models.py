@@ -97,3 +97,25 @@ def update_best_value(email_address, beer, value):
         db.engine.execute(execution_str)
     except Exception as ex:
         print ex
+
+def get_predicted_rating(email_address, beer):
+    execution_str_avg = "SELECT AVG(R.rating) FROM \"Rating\" AS R, \"Beer\" AS B WHERE R.beername = B.beername AND R.email=\'" + email_address + "\' AND B.stylename = (SELECT stylename FROM \"Beer\" WHERE beername=\'" + beer + "\') GROUP BY B.stylename;"
+    avg = db.engine.execute(execution_str_avg)
+    execution_str_count = "SELECT COUNT(R.rating) FROM \"Rating\" AS R, \"Beer\" AS B WHERE R    .beername = B.beername AND R.email=\'" + email_address + "\' AND B.stylename = (SELECT st    ylename FROM \"Beer\" WHERE beername=\'" + beer + "\') GROUP BY B.stylename;"
+    number_ratings = db.engine.execute(execution_str_count)
+    execution_str_rat = "SELECT rating FROM \"Beer\" WHERE beername=\'" + beer + "\';"
+    default_rating = db.engine.execute(execution_str_rat)
+    for d in default_ratings:
+        for c in number_ratings:
+            for a in avg:
+                if c[0] == 1:
+                    return .25 * a[0] + .75 * d[0]
+                if c[0] == 2:
+                    return .33 * a[0] + .67 * d[0]
+                if c[0] == 3:
+                    return .5 * a[0] + .5 * d[0]
+                if c[0] == 4:
+                    return .67 * a[0] + .33 * d[0]
+                if c[0] >= 5:
+                    return .75 * a[0] + .25 * d[0]
+        return d[0]
