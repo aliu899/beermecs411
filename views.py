@@ -64,14 +64,14 @@ def user_dashboard():
         beers_predicted = []
         for beer in beers:
             predicted = get_predicted_rating(session['email'], beer[0])
-            beers_predicted.append((beer[0], predicted, beer[1]))
+            beers_predicted.append((beer[0], float(predicted), beer[1]))
         favorite_style = 'Because you liked ' + favorite_style + ' ...'
 
     else:
         beers = get_beers_rating()
         beers_predicted = []
         for beer in beers:
-            beers_predicted.append((beer[0], beer[1], beer[2]))
+            beers_predicted.append((beer[0], float(beer[1]), beer[2]))
         favorite_style = 'Recommended for you...'
     for beer in beers_predicted:
         print beer[0], beer[1]
