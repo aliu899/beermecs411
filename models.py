@@ -44,6 +44,8 @@ def add_beer(beer, pic, amt, num, price, store):
     execution_str_beer = "INSERT INTO \"Beer\" (beername, pictureurl) VALUES (\'" + beer + "\', \'" + pic + "\');"
     try:
         db.engine.execute(execution_str_beer)
+    except:
+        pass
     execution_str_item = "INSERT INTO \"ItemListing\" (beername, number, size, store, price) VALUES (\'" + str(beer) + "\', " + str(num) + ", " + str(amt) + ", \'" + str(store) + "\', " + str(price) + ");"
     execution_str_upd = "UPDATE \"ItemListing\" SET price=" + str(price) + " WHERE beername=\'" + beer + "\' AND number=" + str(num) +" AND size=" + str(amt) + " AND store=\'" + str(store) + "\';"
     execution_str_upd_rate = "UPDATE \"Rating\" SET bestValue=(SELECT MAX(number*size/price) FROM \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername) WHERE beername=\'" + beer + "\' AND bestValue > (SELECT MAX(number*size/price) FROM \"ItemListing\" AS L WHERE L.beername=\'" + beer + "\' GROUP BY L.beername);"
@@ -54,6 +56,8 @@ def add_beer(beer, pic, amt, num, price, store):
         try:
             db.engine.execute(execution_str_upd)
             db.engine.execute(execution_str_upd_rate)
+        except:
+            pass
 
 def rate_beer(email_address, beer, rating):
     execution_str = "INSERT INTO \"Rating\" (email, beername, rating, bestValue) VALUES (\'" + email_address + "\', \'" + beer + "\', " + str(rating) + ", (SELECT MAX(number*size/price) FROM \"ItemListing\" WHERE beername=\'" + beer + "\' GROUP BY beername));"
