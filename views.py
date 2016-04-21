@@ -59,23 +59,20 @@ def user_dashboard():
     if request.method == 'POST':
         search_hits = search_results(request.form['x'])
     favorite_style = get_favorite_style(session['email'])
+    beers_predicted = []
     if (favorite_style != "empty"):
         beers = get_beers_by_style(favorite_style)
-        beers_predicted = []
+
         for beer in beers:
             predicted = get_predicted_rating(session['email'], beer[0])
-            beers_predicted.append((beer[0], float(predicted), beer[1]))
+            beers_predicted.append((beer[0], predicted, beer[1]))
         favorite_style = 'Because you liked ' + favorite_style + ' ...'
-
     else:
         beers = get_beers_rating()
-        beers_predicted = []
         for beer in beers:
-            beers_predicted.append((beer[0], float(beer[1]), beer[2]))
+            beers_predicted.append((beer[0], beer[1], beer[2]))
         favorite_style = 'Recommended for you...'
-    print "crashed before"
-    sorted(beers_predicted, key=lambda rating: rating[1], reverse = True)
-    print "crashed after"
+    beers_predicted.sort(key=lambda rating: rating[1], reverse = True)
     top3 = [beers_predicted[0], beers_predicted[1], beers_predicted[2]]
     return render_template('query.html', results = search_hits, based_on = favorite_style, recommended = top3)
 
