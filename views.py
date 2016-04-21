@@ -73,7 +73,7 @@ def user_dashboard():
         beers_predicted = []
         for beer in beers:
             beers_predicted.append((beer[0], beer[1], beer[2]))
-            type(beer[1])
+            print type(beer[1])
         favorite_style = 'Recommended for you...'
     sorted(beers_predicted, key=lambda rating: rating[1], reverse = True)
     top3 = [beers_predicted[0], beers_predicted[1], beers_predicted[2]]
