@@ -64,18 +64,18 @@ def user_dashboard():
         beers_predicted = []
         for beer in beers:
             predicted = get_predicted_rating(session['email'], beer[0])
-            beers_predicted.append((beer[0], float(predicted), beer[1]))
+            beers_predicted.append((beer[0], predicted, beer[1]))
+            print type(predicted)
         favorite_style = 'Because you liked ' + favorite_style + ' ...'
 
     else:
         beers = get_beers_rating()
         beers_predicted = []
         for beer in beers:
-            beers_predicted.append((beer[0], float(beer[1]), beer[2]))
+            beers_predicted.append((beer[0], beer[1], beer[2]))
+            type(beer[1])
         favorite_style = 'Recommended for you...'
     sorted(beers_predicted, key=lambda rating: rating[1], reverse = True)
-    for beer in beers_predicted:
-            print beer[0], beer[1]
     top3 = [beers_predicted[0], beers_predicted[1], beers_predicted[2]]
     return render_template('query.html', results = search_hits, based_on = favorite_style, recommended = top3)
 
