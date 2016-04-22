@@ -1,0 +1,49 @@
+	                     List of relations
+ Schema |    Name     | Type  |     Owner      |    Size    | Description 
+--------+-------------+-------+----------------+------------+-------------
+ public | Beer        | table | qeeklygdgfmimx | 240 kB     | 
+ public | ItemListing | table | qeeklygdgfmimx | 216 kB     | 
+ public | Rating      | table | qeeklygdgfmimx | 40 kB      | 
+ public | User        | table | qeeklygdgfmimx | 8192 bytes | 
+(5 rows)
+
+          Table "public.User"
+ Column  |     Type      | Modifiers 
+----------+---------------+-----------
+ email    | character(40) | not null
+ password | character(15) | 
+Indexes:
+    "User_pkey" PRIMARY KEY, btree (email)
+
+               Table "public.Beer"
+   Column   |          Type          | Modifiers 
+------------+------------------------+-----------
+ beername   | character varying(40)  | not null
+ stylename  | character varying(40)  | 
+ brewername | character varying(40)  | 
+ rating     | numeric(2,1)           | 
+ pictureurl | character varying(200) | 
+Indexes:
+    "Beer_pkey" PRIMARY KEY, btree (beername)
+
+          Table "public.ItemListing"
+  Column  |         Type          | Modifiers 
+----------+-----------------------+-----------
+ beername | character varying(40) | not null
+ number   | integer               | not null
+ store    | character varying(16) | not null
+ price    | numeric(5,2)          | 
+ size     | real                  | not null
+Indexes:
+    "ItemListing_pkey" PRIMARY KEY, btree (beername, number, store, size)
+
+            Table "public.Rating"
+  Column   |         Type          | Modifiers 
+-----------+-----------------------+-----------
+ email     | character varying(40) | not null
+ beername  | character varying(40) | not null
+ rating    | integer               | 
+ bestvalue | double precision      | 
+Indexes:
+    "Rating_pkey" PRIMARY KEY, btree (email, beername)
+
